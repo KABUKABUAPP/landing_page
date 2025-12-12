@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Sofia Sans', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -25,6 +25,10 @@ export default {
         header: {
           DEFAULT: "hsl(var(--header))",
           foreground: "hsl(var(--header-foreground))",
+        },
+        cream: {
+          DEFAULT: "hsl(var(--cream))",
+          foreground: "hsl(var(--cream-foreground))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
