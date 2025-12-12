@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Kabukabu Design System */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+/* Kabukabu Design System - Sofia Sans */
 
 @layer base {
   :root {
@@ -42,6 +40,10 @@
     /* Dark header/nav */
     --header: 0 0% 15%;
     --header-foreground: 0 0% 100%;
+
+    /* Cream/beige section background */
+    --cream: 45 50% 94%;
+    --cream-foreground: 0 0% 10%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,6 +87,9 @@
     --header: 0 0% 15%;
     --header-foreground: 0 0% 100%;
 
+    --cream: 45 20% 15%;
+    --cream-foreground: 0 0% 98%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 48 96% 53%;
@@ -106,8 +111,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Outfit', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Sofia Sans', sans-serif;
   }
 }
 
