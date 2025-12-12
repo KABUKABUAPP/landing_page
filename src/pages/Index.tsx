@@ -1,12 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import HowItWorks from "@/components/HowItWorks";
-import Services from "@/components/Services";
-import DriveWithUs from "@/components/DriveWithUs";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import DownloadCTA from "@/components/DownloadCTA";
+import WhyLoveUs from "@/components/WhyLoveUs";
+import CommunityTabs from "@/components/CommunityTabs";
+import ThingsWeDo from "@/components/ThingsWeDo";
+import CommunitySection from "@/components/CommunitySection";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 
@@ -24,13 +21,10 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
-          <Features />
-          <HowItWorks />
-          <Services />
-          <DriveWithUs />
-          <Testimonials />
-          <FAQ />
-          <DownloadCTA />
+          <WhyLoveUs />
+          <CommunityTabs />
+          <ThingsWeDo />
+          <CommunitySection />
         </main>
         <Footer />
       </div>
