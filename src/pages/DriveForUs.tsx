@@ -3,25 +3,7 @@ import Footer from "@/components/Footer";
 import CommunitySection from "@/components/CommunitySection";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
-import { Car, DollarSign, Calendar, Check, Download, UserPlus, FileCheck, Play } from "lucide-react";
-
-const benefits = [
-  {
-    icon: Car,
-    title: "Drive a Kabukabu Vehicle",
-    description: "No need to worry about finding your own Kabukabu vehicle - just focus on driving. We handle all of your essential vehicle needs so you can stay active in the flow and earn."
-  },
-  {
-    icon: DollarSign,
-    title: "Competitive Earnings",
-    description: "Experience daily, weekly or even same day payments with our commission rates. Let it be driver terms instead of ours while still getting the most value for your driving hours."
-  },
-  {
-    icon: Calendar,
-    title: "Flexible Scheduling",
-    description: "Choose to work when it suits you. Our flexible scheduling options mean you're not tied to a 9-to-5 if you don't want. Hit the Sharp Driver program whenever fits your lifestyle."
-  }
-];
+import { Car, DollarSign, Calendar, Check, Download, UserPlus, FileCheck, Play, ArrowRight } from "lucide-react";
 
 const whyChoose = [
   {
@@ -44,23 +26,27 @@ const whyChoose = [
 const steps = [
   {
     icon: Download,
+    step: "01",
     title: "Download the Kabukabu Driver App",
     description: "Get started by downloading the Kabukabu Driver app from the App Store or Google Play. It's quick, easy to install.",
-    link: "Get The App →"
+    link: "Get The App"
   },
   {
     icon: UserPlus,
+    step: "02",
     title: "Sign Up & Apply for the Sharp Driver Program",
     description: "Within the app, select the Sharp Driver option, complete the required details, and submit your application with any requested documents.",
-    link: "View Requirements →"
+    link: "View Requirements"
   },
   {
     icon: FileCheck,
+    step: "03",
     title: "Complete Your Onboarding",
     description: "Once your application is approved, you'll receive full onboarding, training, and access to your assigned vehicle and earnings page.",
   },
   {
     icon: Play,
+    step: "04",
     title: "Start Driving and Earning!",
     description: "Pick up requests, hit the roads, and start earning. With our tools and low commission rates, you're set to make money like the masters on the road."
   }
@@ -90,8 +76,8 @@ const DriveForUs = () => {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
                   Drive with Our Cars, Earn with Us
                 </h1>
-                <p className="text-white/80 mb-6">
-                  🚗 No Car? No Problem! Drive with Kabukabu's Sharp Driver Program! 🚗
+                <p className="text-white/80 mb-6 flex items-center gap-2">
+                  <span>🚗</span> No Car? No Problem! Drive with Kabukabu's Sharp Driver Program! <span>🚗</span>
                 </p>
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base rounded-lg">
                   Get The App
@@ -100,7 +86,7 @@ const DriveForUs = () => {
             </div>
           </section>
 
-          {/* Intro Section */}
+          {/* Intro Section with Form */}
           <section className="py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -120,22 +106,22 @@ const DriveForUs = () => {
                     <div className="space-y-4">
                       <div>
                         <label className="text-sm text-muted-foreground">House Address *</label>
-                        <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1" placeholder="House address here" />
+                        <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1 bg-background" placeholder="House address here" />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
                           <label className="text-sm text-muted-foreground">City *</label>
-                          <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1" placeholder="City" />
+                          <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1 bg-background" placeholder="City" />
                         </div>
                         <div>
                           <label className="text-sm text-muted-foreground">State *</label>
-                          <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1" placeholder="State/city" />
+                          <input type="text" className="w-full border border-border rounded-lg px-3 py-2 mt-1 bg-background" placeholder="State/city" />
                         </div>
                       </div>
                       <div>
                         <label className="text-sm text-muted-foreground">Do you have a car? *</label>
                         <div className="flex gap-4 mt-2">
-                          <button className="px-6 py-2 border border-border rounded-lg text-sm">Yes</button>
+                          <button className="px-6 py-2 border border-border rounded-lg text-sm bg-background">Yes</button>
                           <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg text-sm">No I don't</button>
                         </div>
                       </div>
@@ -144,15 +130,15 @@ const DriveForUs = () => {
                   </div>
                   
                   {/* Feature badges */}
-                  <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2">
+                  <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2 border border-border">
                     <Check className="w-4 h-4 text-primary" />
                     <span className="text-xs font-medium">Easy Onboarding</span>
                   </div>
-                  <div className="absolute top-1/3 -left-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2">
+                  <div className="absolute top-1/3 -left-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2 border border-border">
                     <Check className="w-4 h-4 text-primary" />
                     <span className="text-xs font-medium">Flexible Screening</span>
                   </div>
-                  <div className="absolute bottom-1/4 -right-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2">
+                  <div className="absolute bottom-1/4 -right-4 bg-white rounded-lg shadow-lg px-3 py-2 flex items-center gap-2 border border-border">
                     <DollarSign className="w-4 h-4 text-primary" />
                     <span className="text-xs font-medium">Competitive Earnings</span>
                   </div>
@@ -170,8 +156,8 @@ const DriveForUs = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChoose.map((item) => (
                   <div key={item.title} className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                      <item.icon className="w-6 h-6 text-primary" />
+                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                      <item.icon className="w-7 h-7 text-primary" />
                     </div>
                     <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
@@ -191,17 +177,18 @@ const DriveForUs = () => {
                 Our driver app makes it easy to receive and manage ride requests, ensuring you save time and effort while staying flexible. Here are the key steps to getting started on the road.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {steps.map((step) => (
-                  <div key={step.title} className="bg-white/5 rounded-xl p-6">
+                  <div key={step.title} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                    <div className="text-primary text-sm font-medium mb-3">{step.step}</div>
                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
                       <step.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-white mb-2">{step.title}</h3>
-                    <p className="text-sm text-white/60 mb-3">{step.description}</p>
+                    <h3 className="font-semibold text-white mb-2 text-sm">{step.title}</h3>
+                    <p className="text-xs text-white/60 mb-3">{step.description}</p>
                     {step.link && (
-                      <a href="#" className="text-primary text-sm font-medium hover:underline">
-                        {step.link}
+                      <a href="#" className="text-primary text-xs font-medium hover:underline inline-flex items-center gap-1">
+                        {step.link} <ArrowRight className="w-3 h-3" />
                       </a>
                     )}
                   </div>

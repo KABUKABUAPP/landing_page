@@ -23,7 +23,7 @@ const Support = () => {
         <Header />
         <main className="pt-20">
           {/* Hero Section */}
-          <section className="py-16 bg-background">
+          <section className="py-16 bg-cream">
             <div className="container mx-auto px-4 lg:px-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
                 How can we help?
@@ -49,8 +49,8 @@ const Support = () => {
                     to={category.href}
                     className="bg-background border border-border rounded-xl p-6 hover:shadow-lg transition-all text-center group"
                   >
-                    <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
-                      <category.icon className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
+                    <div className="w-12 h-12 bg-cream rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
+                      <category.icon className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
                     </div>
                     <span className="font-medium text-foreground">{category.label}</span>
                   </Link>
