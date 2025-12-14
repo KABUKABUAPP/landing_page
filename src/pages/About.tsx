@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CommunitySection from "@/components/CommunitySection";
 import { Helmet } from "react-helmet-async";
-import { Lightbulb, Shield, Users, Heart, Quote } from "lucide-react";
+import { Lightbulb, Shield, Users, Heart, Quote, Car, Package, Calendar, Truck, ShoppingBag } from "lucide-react";
 
 const principles = [
   {
@@ -40,6 +40,15 @@ const testimonials = [
   }
 ];
 
+const services = [
+  { icon: Car, title: "Kabu Ride", highlighted: true },
+  { icon: Package, title: "Kabu Share" },
+  { icon: Calendar, title: "Kabu Enter" },
+  { icon: Truck, title: "Kabu Move" },
+  { icon: ShoppingBag, title: "Kabu Shop" },
+  { icon: Users, title: "Kabu Fleet" }
+];
+
 const About = () => {
   return (
     <>
@@ -58,7 +67,7 @@ const About = () => {
                 backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
               }}
             />
-            <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+            <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center pt-10">
               <p className="text-white/80 text-sm mb-2">About Kabukabu</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Your Journey, Our Passion
@@ -200,7 +209,7 @@ const About = () => {
               
               <div className="space-y-12">
                 {testimonials.map((testimonial, index) => (
-                  <div key={testimonial.name} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+                  <div key={testimonial.name} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
                     <div 
                       className={`aspect-[4/3] rounded-2xl bg-cover bg-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}
                       style={{

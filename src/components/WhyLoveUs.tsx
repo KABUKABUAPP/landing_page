@@ -35,48 +35,77 @@ const WhyLoveUs = () => {
           Here's Why You'll Love Us:
         </h2>
 
-        <div className="relative max-w-5xl mx-auto">
-          {/* Center phone mockup */}
-          <div className="hidden lg:flex justify-center items-center absolute inset-0 z-10 pointer-events-none">
-            <div className="bg-white rounded-3xl shadow-2xl p-3 w-64">
-              <div className="bg-gray-100 rounded-2xl aspect-[9/19] flex flex-col items-center justify-center p-4">
-                <div className="w-full space-y-2">
-                  <div className="bg-white rounded-lg p-3 shadow-sm">
-                    <div className="text-xs font-medium text-foreground">Current location</div>
-                    <div className="text-[10px] text-muted-foreground">📍 Lekki Phase 1</div>
+        <div className="relative max-w-6xl mx-auto">
+          {/* Feature cards grid with center phone */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center">
+            {/* Left column */}
+            <div className="space-y-8">
+              {features.slice(0, 2).map((feature) => (
+                <div key={feature.title} className="flex flex-col">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-10 h-10 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-foreground mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="bg-white rounded-lg p-3 shadow-sm">
-                    <div className="text-xs font-medium text-foreground">Destination</div>
-                    <div className="text-[10px] text-muted-foreground">📍 Victoria Island</div>
-                  </div>
-                  <div className="bg-primary rounded-lg p-2 text-center">
-                    <span className="text-xs font-semibold text-primary-foreground">Book Ride</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Center phone mockup */}
+            <div className="hidden lg:flex justify-center items-center">
+              <div className="bg-white rounded-3xl shadow-2xl p-3 w-56 border border-border">
+                <div className="bg-cream rounded-2xl aspect-[9/19] flex flex-col items-center justify-center p-4">
+                  <div className="w-full space-y-3">
+                    <div className="bg-white rounded-lg p-3 shadow-sm">
+                      <div className="text-xs font-medium text-foreground">Current location</div>
+                      <div className="text-[10px] text-muted-foreground flex items-center gap-1">
+                        <span className="w-2 h-2 bg-primary rounded-full"></span>
+                        Lekki Phase 1
+                      </div>
+                    </div>
+                    <div className="bg-white rounded-lg p-3 shadow-sm">
+                      <div className="text-xs font-medium text-foreground">Where to?</div>
+                      <div className="text-[10px] text-muted-foreground flex items-center gap-1">
+                        <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                        Victoria Island
+                      </div>
+                    </div>
+                    <div className="bg-primary rounded-lg p-2.5 text-center">
+                      <span className="text-xs font-semibold text-primary-foreground">Book Ride</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Feature cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-x-80 lg:gap-y-12">
-            {features.map((feature) => (
-              <div 
-                key={feature.title} 
-                className="flex flex-col"
-              >
-                <div className="flex items-start gap-3 mb-2">
-                  <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-4 h-4 text-primary" />
+            {/* Right column */}
+            <div className="space-y-8">
+              {features.slice(2, 4).map((feature) => (
+                <div key={feature.title} className="flex flex-col">
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-10 h-10 bg-cream rounded-lg flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-foreground mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-lg text-foreground">
-                    {feature.title}
-                  </h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

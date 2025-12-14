@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Youtube } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,25 +8,31 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-wrap gap-6 text-sm">
-            <a href="/about" className="text-foreground hover:text-primary transition-colors">
+            <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About Kabukabu
-            </a>
-            <a href="/support" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/support" className="text-foreground hover:text-primary transition-colors">
               Talk To Us
-            </a>
+            </Link>
             <a href="#" className="text-foreground hover:text-primary transition-colors">
               Our Hubs
             </a>
           </div>
           <div className="flex gap-4">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              <Facebook className="w-5 h-5" />
+            <a href="#" className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background hover:bg-primary transition-colors">
+              <Facebook className="w-4 h-4" />
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              <Twitter className="w-5 h-5" />
+            <a href="#" className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background hover:bg-primary transition-colors">
+              <Twitter className="w-4 h-4" />
             </a>
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
-              <Youtube className="w-5 h-5" />
+            <a href="#" className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background hover:bg-primary transition-colors">
+              <Instagram className="w-4 h-4" />
+            </a>
+            <a href="#" className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background hover:bg-primary transition-colors">
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a href="#" className="w-8 h-8 bg-foreground rounded-full flex items-center justify-center text-background hover:bg-primary transition-colors">
+              <Youtube className="w-4 h-4" />
             </a>
           </div>
         </div>
@@ -42,11 +49,11 @@ const Footer = () => {
           </p>
           
           {/* Center logo */}
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <span className="text-xl font-bold text-foreground">
               <span className="text-primary">K</span>abukabu
             </span>
-          </a>
+          </Link>
 
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

@@ -15,7 +15,7 @@ const faqItems = [
 
 const SupportCategory = () => {
   const { category } = useParams();
-  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ') : 'Riders';
+  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, ' ') : 'Riders';
 
   return (
     <>
@@ -38,7 +38,7 @@ const SupportCategory = () => {
           </div>
 
           {/* Content */}
-          <section className="py-12 bg-background">
+          <section className="py-12 bg-cream">
             <div className="container mx-auto px-4 lg:px-8">
               <h1 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-8">
                 {categoryTitle} Support
@@ -62,7 +62,7 @@ const SupportCategory = () => {
                   <Link
                     key={index}
                     to={`/support/${category}/article`}
-                    className="flex items-center justify-between p-4 border border-border rounded-lg hover:shadow-md transition-all group"
+                    className="flex items-center justify-between p-4 bg-background border border-border rounded-lg hover:shadow-md transition-all group"
                   >
                     <span className="text-foreground">{item}</span>
                     <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />

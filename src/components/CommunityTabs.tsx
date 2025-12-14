@@ -9,8 +9,8 @@ const tabs = [
 
 const tabContent = {
   riders: {
-    title: "Come Home to Your Fingertips",
-    description: "Getting from one point A to B has never been easier. With the Kabukabu app, you can hail a ride in just a few taps, track your driver in real-time, and enjoy cashless payments wherever you are. And if you're part of the many eligible organizations, we've got exclusive deals at your fingertips.",
+    title: "Convenience Right at Your Fingertips",
+    description: "Getting from point A to B has never been easier. With the Kabukabu app, you can hail a ride in just a few taps, track your driver in real-time, and enjoy cashless payments wherever you are. And if you're part of one of our many eligible organizations, we've got exclusive deals at your fingertips.",
     features: [
       { title: "Low Rate Guarantee", description: "Riders have access to the most competitive rates on every ride." },
       { title: "Exclusive Discounts", description: "Get exclusive offers for loyalty, students, and deals on your travels with our wallet." },
@@ -60,7 +60,7 @@ const CommunityTabs = () => {
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
                 activeTab === tab.id
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-foreground hover:bg-secondary/80"
+                  : "bg-cream text-foreground hover:bg-cream/80"
               }`}
             >
               {tab.label}
