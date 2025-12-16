@@ -49,10 +49,14 @@ const Footer = () => {
           </p>
           
           {/* Center logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-xl font-bold text-foreground">
-              <span className="text-primary">K</span>abukabu
-            </span>
+          <Link to="/" className="flex items-center" aria-label="Kabukabu Home">
+            <img 
+              src="/designScreens/kabukabuLogo.png" 
+              alt="Kabukabu" 
+              className="h-8 w-auto md:h-10"
+              loading="lazy"
+              decoding="async"
+            />
           </Link>
 
           <div className="flex gap-6 text-sm">

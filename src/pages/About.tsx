@@ -1,236 +1,165 @@
-import Header from "@/components/Header";
+﻿import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CommunitySection from "@/components/CommunitySection";
 import { Helmet } from "react-helmet-async";
-import { Lightbulb, Shield, Users, Heart, Quote, Car, Package, Calendar, Truck, ShoppingBag } from "lucide-react";
-
-const principles = [
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description: "We embrace cutting-edge technology to deliver smarter, faster, and more efficient transportation solutions."
-  },
-  {
-    icon: Shield,
-    title: "Integrity",
-    description: "Trust is at the heart of everything we do. We maintain transparency in our operations with all stakeholders."
-  },
-  {
-    icon: Users,
-    title: "Community",
-    description: "We foster a sense of belonging and mutual respect among riders, drivers, and all users of our platform."
-  },
-  {
-    icon: Heart,
-    title: "Caring",
-    description: "We care about the well-being of everyone we serve. Safety, comfort, and customer satisfaction come first."
-  }
-];
-
-const testimonials = [
-  {
-    quote: "I've tried other platforms but Kabukabu is simply the best. As a regular commuter across Lagos, the reliability of finding a ride even during peak hours makes it my go-to choice.",
-    name: "Ada",
-    role: "Rider"
-  },
-  {
-    quote: "As a female driver in a predominantly male industry, I was skeptical at first. But Kabukabu's safety features and the community support make me feel secure. I'm proud to be a driver.",
-    name: "Funke",
-    role: "Driver"
-  }
-];
-
-const services = [
-  { icon: Car, title: "Kabu Ride", highlighted: true },
-  { icon: Package, title: "Kabu Share" },
-  { icon: Calendar, title: "Kabu Enter" },
-  { icon: Truck, title: "Kabu Move" },
-  { icon: ShoppingBag, title: "Kabu Shop" },
-  { icon: Users, title: "Kabu Fleet" }
-];
+import { Shield, Users, Clock, Quote } from "lucide-react";
 
 const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Kabukabu - Your Journey, Our Passion</title>
-        <meta name="description" content="Learn about Kabukabu's mission to redefine the ride-hailing experience in Nigeria." />
+        <title>About Kabukabu - Building Mobility For All</title>
+        <meta name="description" content="Learn about Kabukabu’s mission, vision and people. We’re building safe, reliable mobility for riders and drivers." />
       </Helmet>
       <div className="min-h-screen">
         <Header />
         <main>
-          {/* Hero Section */}
-          <section className="relative py-32 flex items-center bg-header">
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-40"
-              style={{
-                backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
-              }}
-            />
-            <div className="container mx-auto px-4 lg:px-8 relative z-10 text-center pt-10">
-              <p className="text-white/80 text-sm mb-2">About Kabukabu</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Your Journey, Our Passion
-              </h1>
-            </div>
-          </section>
-
-          {/* Redefining Section */}
-          <section className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-                Redefining the Ride-Hailing Experience
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-12 max-w-4xl">
-                At Kabukabu, we aren't simply creating a ride-hailing platform — we're building a new experience that redefines convenience, safety, and innovation for all Nigerians. Whether you're a rider looking for comfortable, affordable rides, or a driver who wants to earn more with flexibility, Kabukabu is designed to serve everyone with excellence.
+          {/* Hero */}
+          <section
+            className="relative min-h-[50vh] flex items-end"
+            style={{
+              backgroundImage: "url(/designScreens/assets/about/hero_about.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="container mx-auto px-4 lg:px-8 relative z-10 pb-10">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-white">Building Mobility for People, Businesses and Cities</h1>
+              <p className="text-white/85 max-w-2xl mt-3">
+                Our story is about safe, simple and reliable movement for
+                everyone — riders, drivers and partners.
               </p>
+            </div>
+          </section>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div 
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
-                  }}
+          {/* Mission */}
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <img
+                  src="/designScreens/assets/about/about_person_car.png"
+                  alt="About Kabukabu"
+                  className="rounded-2xl w-full h-auto object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
-                    Our <span className="text-primary">Mission</span>
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our mission is to make transportation simple, accessible, and enjoyable for everyone. From modern vehicles with top-notch reliability to professional, vetted drivers, Kabukabu offers a seamless experience from the moment you book to the moment you arrive. Together, we're building solutions that redefine transportation across Nigeria.
-                  </p>
-                </div>
               </div>
+              <div>
+                <span className="inline-block bg-primary/15 text-primary text-xs font-medium px-3 py-1 rounded-full mb-3">Our Mission</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">Making everyday journeys better</h2>
+                <p className="text-muted-foreground mt-3">
+                  We’re building a ride-hailing platform centered on people —
+                  combining trusted drivers, clear pricing and thoughtful
+                  product design to make every trip feel smooth and safe.
+                </p>
+              </div>
+            </div>
+          </section>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="order-2 lg:order-1">
-                  <h3 className="text-xl font-bold text-foreground mb-4">
-                    What Sets Us Apart
-                  </h3>
-                  <h4 className="font-semibold text-foreground mb-2">Driver-Centric Approach</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    At Kabukabu, our drivers aren't just contractors — they're partners in our journey. With lower commissions, flexible scheduling, and access to value-added services, we make sure our drivers thrive both personally and professionally.
-                  </p>
-                </div>
-                <div 
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center order-1 lg:order-2"
-                  style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070')"
-                  }}
+          {/* Vision */}
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+              <div className="order-2 lg:order-1">
+                <span className="inline-block bg-primary/15 text-primary text-xs font-medium px-3 py-1 rounded-full mb-3">Our Vision</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">Mobility that works for everyone</h2>
+                <p className="text-muted-foreground mt-3">
+                  A future where getting around is simpler, safer and more
+                  inclusive for riders and drivers in every city we serve.
+                </p>
+              </div>
+              <div className="order-1 lg:order-2">
+                <img
+                  src="/designScreens/assets/about/about_person_car.png"
+                  alt="Kabukabu vision"
+                  className="rounded-2xl w-full h-auto object-cover"
                 />
               </div>
             </div>
           </section>
 
-          {/* Our Services */}
+          {/* Core strengths */}
           <section className="py-16 bg-cream">
-            <div className="container mx-auto px-4 lg:px-8 text-center">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Our Services</h2>
-              <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Kabukabu offers a range of services designed to meet the transportation needs of different groups:
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <span className="px-6 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium">For Riders</span>
-                <span className="px-6 py-2 bg-background text-foreground rounded-full text-sm font-medium border border-border">For Drivers</span>
-                <span className="px-6 py-2 bg-background text-foreground rounded-full text-sm font-medium border border-border">For Fleet Owners</span>
-                <span className="px-6 py-2 bg-background text-foreground rounded-full text-sm font-medium border border-border">For Sharp Drivers</span>
-              </div>
-            </div>
-          </section>
-
-          {/* Ride with Ease */}
-          <section className="py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div 
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
-                  }}
-                />
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">Ride with Ease</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    With just a few taps, you can book a comfortable, reliable, and affordable ride. Enjoy perks like discounts for students and frequent riders, all while traveling in style.
-                  </p>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="rounded-2xl bg-background p-6 border">
+                  <Shield className="w-6 h-6 text-primary" />
+                  <h3 className="mt-3 font-semibold text-foreground">Safety & Trust</h3>
+                  <p className="text-sm text-muted-foreground mt-1">In‑ride tools, verified drivers and helpful support.</p>
+                </div>
+                <div className="rounded-2xl bg-background p-6 border">
+                  <Clock className="w-6 h-6 text-primary" />
+                  <h3 className="mt-3 font-semibold text-foreground">On‑time & Reliable</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Smart dispatch and fair prices for every trip.</p>
+                </div>
+                <div className="rounded-2xl bg-background p-6 border">
+                  <Users className="w-6 h-6 text-primary" />
+                  <h3 className="mt-3 font-semibold text-foreground">Community First</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Benefits that help riders and drivers thrive together.</p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Guiding Principles */}
-          <section className="py-20 bg-cream">
-            <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Our Guiding Principles</h2>
-              <p className="text-muted-foreground mb-12 max-w-3xl">
-                At Kabukabu, we believe our success begins with putting people first. Our guiding principles reflect our commitment to creating a ride-hailing platform where every rider and driver feels valued and supported. These principles are what makes Kabukabu more than just an app.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {principles.map((principle) => (
-                  <div key={principle.title} className="bg-background rounded-xl p-6 border border-border">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                      <principle.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-foreground mb-2">{principle.title}</h3>
-                    <p className="text-sm text-muted-foreground">{principle.description}</p>
+          {/* People quotes */}
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 space-y-12">
+              {[0,1].map((i) => (
+                <div key={i} className="grid lg:grid-cols-2 gap-10 items-center">
+                  <div className={i % 2 ? "lg:order-2" : ""}>
+                    <img src="/designScreens/assets/about/about_person_car.png" alt="Rider in car" className="rounded-2xl w-full h-auto object-cover" />
                   </div>
-                ))}
-              </div>
+                  <div className={i % 2 ? "lg:order-1" : ""}>
+                    <Quote className="w-8 h-8 text-primary mb-4" />
+                    <p className="text-muted-foreground leading-relaxed mb-2">
+                      “Kabukabu makes it easy to move around the city. The
+                      rides are comfortable and I always feel safe.”
+                    </p>
+                    <p className="font-semibold text-foreground">Community member</p>
+                    <p className="text-sm text-muted-foreground">Rider</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* Our Vision */}
-          <section className="py-20 bg-background">
+          {/* Wide image */}
+          <section className="py-8 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div 
-                  className="aspect-[4/3] rounded-2xl bg-cover bg-center"
-                  style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
-                  }}
-                />
-                <div>
-                  <h3 className="text-xl font-bold text-foreground mb-4">
-                    Our <span className="text-primary">Vision</span>
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    We envision a future where transportation is seamless, accessible, and sustainable for every Nigerian. We aim to be the leading ride-hailing platform that truly understands the pulse of local communities while driving innovation and excellence in urban mobility.
-                  </p>
+              <img src="/designScreens/assets/about/about_person_car.png" alt="Kabukabu community" className="rounded-2xl w-full h-auto object-cover" />
+            </div>
+          </section>
+
+          {/* Download */}
+          <section id="download" className="py-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+              <div className="bg-muted/40 rounded-2xl p-6 border">
+                <div className="flex justify-center">
+                  <img src="/designScreens/assets/about/phone_card_rider.png" alt="Rider app" className="w-[260px] md:w-[300px]" />
+                </div>
+                <div className="mt-6 text-center">
+                  <h3 className="font-semibold text-lg">Riders App</h3>
+                  <p className="text-sm text-muted-foreground mt-1">More ways to ride</p>
+                </div>
+                <div className="mt-6 flex justify-center gap-3">
+                  <img src="/designScreens/assets/about/badge_app_store.png" alt="App Store" className="h-10 w-auto" />
+                  <img src="/designScreens/assets/about/badge_google_play.png" alt="Google Play" className="h-10 w-auto" />
+                </div>
+              </div>
+              <div className="bg-muted/40 rounded-2xl p-6 border">
+                <div className="flex justify-center">
+                  <img src="/designScreens/assets/about/phone_card_driver.png" alt="Driver app" className="w-[260px] md:w-[300px]" />
+                </div>
+                <div className="mt-6 text-center">
+                  <h3 className="font-semibold text-lg">Drivers App</h3>
+                  <p className="text-sm text-muted-foreground mt-1">Drive to earn</p>
+                </div>
+                <div className="mt-6 flex justify-center gap-3">
+                  <img src="/designScreens/assets/about/badge_app_store.png" alt="App Store" className="h-10 w-auto" />
+                  <img src="/designScreens/assets/about/badge_google_play.png" alt="Google Play" className="h-10 w-auto" />
                 </div>
               </div>
             </div>
           </section>
-
-          {/* Our People */}
-          <section className="py-20 bg-cream">
-            <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Our People</h2>
-              
-              <div className="space-y-12">
-                {testimonials.map((testimonial, index) => (
-                  <div key={testimonial.name} className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center`}>
-                    <div 
-                      className={`aspect-[4/3] rounded-2xl bg-cover bg-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}
-                      style={{
-                        backgroundImage: "url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070')"
-                      }}
-                    />
-                    <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                      <Quote className="w-8 h-8 text-primary mb-4" />
-                      <p className="text-muted-foreground leading-relaxed mb-4 italic">
-                        "{testimonial.quote}"
-                      </p>
-                      <p className="font-semibold text-foreground">{testimonial.name}</p>
-                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <CommunitySection />
         </main>
         <Footer />
       </div>
