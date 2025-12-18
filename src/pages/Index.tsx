@@ -59,12 +59,18 @@ const Index = () => {
                 {/* Left features */}
                 <div className="space-y-6">
                   <div className="p-5 rounded-xl bg-muted/40 border border-border">
-                    <h3 className="font-semibold text-foreground">Uncompromising Safety</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Verified drivers, in-ride tools and 24/7 support.</p>
+                    <h3 className="font-semibold text-foreground">Amazing Incentives</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Take advantage of student discounts, exclusive deals for frequent riders and special promotions. <br />
+                      Whether you are a first time user or a loyal rider, Kabukabu makes your experience even more rewarding.
+                    </p>
                   </div>
                   <div className="p-5 rounded-xl bg-muted/40 border border-border">
-                    <h3 className="font-semibold text-foreground">Unbeatable Value</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Transparent pricing and rewarding perks for riders.</p>
+                    <h3 className="font-semibold text-foreground">Unbeatable Prices</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Enjoy the freedom of affordable rides without compromising on comfort. <br /> 
+                      We believe everyone deserves a premium ride experience without breaking the bank.
+                    </p>
                   </div>
                 </div>
 
@@ -85,12 +91,15 @@ const Index = () => {
                 {/* Right features */}
                 <div className="space-y-6">
                   <div className="p-5 rounded-xl bg-muted/40 border border-border">
-                    <h3 className="font-semibold text-foreground">Clean Comfort</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Enjoy pleasant rides with well-kept vehicles.</p>
+                    <h3 className="font-semibold text-foreground">Classy Comfort</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      We blend fun with sophistication to deliver a ride that's both stylish and enjoyable. <br />
+                      Expect clean, comfortable vehicles and professional, friendly drivers who ensure your satisfaction.
+                    </p>
                   </div>
                   <div className="p-5 rounded-xl bg-muted/40 border border-border">
-                    <h3 className="font-semibold text-foreground">Community-Driven</h3>
-                    <p className="text-sm text-muted-foreground mt-1">Built for riders and drivers to thrive together.</p>
+                    <h3 className="font-semibold text-foreground">Reduced Commision For Drivers</h3>
+                    <p className="text-sm text-muted-foreground mt-1">Our drivers are the backbone of our service. With reduced commission rates, we make sure that they keep more of their earnings, motivating them to provide the best service possible.</p>
                   </div>
                 </div>
               </div>
@@ -99,7 +108,7 @@ const Index = () => {
 
           {/* Community section */}
           <section className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 pt-5">
               <div>
                 <img
                   src="/designScreens/assets/ride-with-us/community_businesswoman_car.png"
@@ -113,10 +122,6 @@ const Index = () => {
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                   We build a better community for all users
                 </h2>
-                <p className="mt-4 text-muted-foreground">
-                  From flexible earnings for drivers to reliable rides for riders,
-                  Kabukabu makes mobility fair, safe and accessible for everyone.
-                </p>
                 {/* Tabs */}
                 <CommunityTabsBlock />
               </div>
@@ -130,11 +135,11 @@ const Index = () => {
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: "Kabu Ride", img: "/designScreens/assets/ride-with-us/car_yellow.png" },
-                  { title: "Kabu Premium", img: "/designScreens/assets/ride-with-us/car_red.png" },
-                  { title: "Kabu Dispatch", img: "/designScreens/assets/ride-with-us/car_brown.png" },
-                  { title: "Kabu Pink", img: "/designScreens/assets/ride-with-us/car_pink.png" },
-                  { title: "Kabu Purple", img: "/designScreens/assets/ride-with-us/car_purple.png" },
-                  { title: "Kabu Eco", img: "/designScreens/assets/ride-with-us/car_cream.png" },
+                  { title: "Kabu Share", img: "/designScreens/assets/ride-with-us/car_red.png" },
+                  { title: "Kabu Later", img: "/designScreens/assets/ride-with-us/car_brown.png" },
+                  { title: "Kabu Drive", img: "/designScreens/assets/ride-with-us/car_pink.png" },
+                  { title: "Kabu Sharp", img: "/designScreens/assets/ride-with-us/car_purple.png" },
+                  { title: "Kabu Fleet", img: "/designScreens/assets/ride-with-us/car_cream.png" },
                 ].map((item) => (
                   <div key={item.title} className="flex items-center justify-between p-4 rounded-xl border bg-card">
                     <div>
@@ -239,7 +244,7 @@ const CommunityTabsBlock = () => {
       onClick={() => setActive(id)}
       className={`px-4 py-2 text-sm font-semibold transition-colors${
         active === id
-          ? ' bg-primary text-primary-foreground rounded-lg'
+          ? ' bg-primary text-primary-foreground rounded-full'
           : ' text-muted-foreground'
       }`}
     >
@@ -254,27 +259,77 @@ const CommunityTabsBlock = () => {
         <TabButton id="drivers" label="Drivers" />
         <TabButton id="fleet" label="Fleet Owners" />
       </div>
-      <div className="mt-4 text-muted-foreground">
+      <div className="mt-4">
         {active === 'riders' && (
-          <ul className="space-y-2">
-            <li>- Transparent pricing and respectful service standards</li>
-            <li>- Seamless booking with in-ride safety tools</li>
-            <li>- Comfortable vehicles and courteous drivers</li>
-          </ul>
+          <>
+            <p className="text-lg my-5">Convenience at Your Fingertips</p>
+
+            <p className="text-md my-5">Getting from point A to B has never been easier. With the Kabukabu app, you can book a ride with just a few taps, track your driver in real-time and enjoy cachless payments. Whethere you are running late for a meeting or heading out for an evening with friends, we have you covered.</p>
+
+            <ul className="space-y-4">
+              <li>
+                <span className="font-bold">Low Fare Guarantee</span><br />
+                <span className="text-muted-foreground">Always know you are getting the best rate</span> 
+              </li>
+              <li>
+                <span className="font-bold">Exclusive Discounts</span><br />
+                <span className="text-muted-foreground">From student offers to loyalty rewards, we make your rides more affordable</span> 
+              </li>
+              <li>
+                <span className="font-bold">Safety First</span><br />
+                <span className="text-muted-foreground">Verified drivers and 24/7 support ensure a safe, secure journey every-time</span> 
+              </li>
+            </ul>
+          </>
         )}
         {active === 'drivers' && (
-          <ul className="space-y-2">
-            <li>- Lower commissions so you keep more</li>
-            <li>- Flexible hours with reliable demand</li>
-            <li>- Helpful support and simple onboarding</li>
-          </ul>
+          <>
+            <p className="text-lg my-5">Your Success, Our Priority</p>
+
+            <p className="text-md my-5">Join our community of drivers who enjoy reduced commisions, flexible schedules and fantastic earning potential. Kabukabu empowers you to earn more and provide better service to your riders.</p>
+
+            <ul className="space-y-4">
+              <li>
+                <span className="font-bold">Keep More of Your Earnings</span><br />
+                <span className="text-muted-foreground">Low commision rates means you earn more per trip.</span> 
+              </li>
+              <li>
+                <span className="font-bold">Incentives & Bonuses</span><br />
+                <span className="text-muted-foreground">Enjoy special bonuses for hitting milestones and delivering exceptional service.</span> 
+              </li>
+              <li>
+                <span className="font-bold">Flexible Hours</span><br />
+                <span className="text-muted-foreground">You decide when and where to drive. With Kabukabu, your schedule is yours to control</span> 
+              </li>
+            </ul>
+          </>
         )}
         {active === 'fleet' && (
-          <ul className="space-y-2">
-            <li>- Tools to manage and monitor vehicles</li>
-            <li>- Access to riders to increase utilization</li>
-            <li>- Support to grow and maintain your fleet</li>
-          </ul>
+          <>
+            <p className="text-lg my-5">Maximize Your Earnings With Kabukabu</p>
+
+            <p className="text-md my-5">Are you a fleet owner looking to expand your business and increase profitablility? Kabukabu offers the perfect solution to help you optimize your fleet's potential and earn more without the hassle of managing every detail. With our platform, you can easily manage your vehicles, drivers and operations while maintaining a steady income stream.</p>
+
+            <ul className="space-y-4">
+              <li>
+                <span className="font-bold">Higher Profits, Lower Commisions</span><br />
+                <span className="text-muted-foreground">Kabukabu offers some of the lowest commision rates in the industry, allowing you to maximize your earnings. Keep more of what you earn on every trip your fleet makes</span> 
+              </li>
+              <li>
+                <span className="font-bold">Seamless Fleet Management</span><br />
+                <span className="text-muted-foreground">Our advanced platform offers multiple tools to manage multiple vehicles and drivers effortlessly. From tracking performance to monitoring driver behavior, Kabukabu makes fleet management simple and efficient.</span> 
+              </li>
+              <li>
+                <span className="font-bold">Real Time Insights & Analytics</span><br />
+                <span className="text-muted-foreground">Stay in control with real-time data on vehicle performance, earnings and driver efficiency. Kabukabu provides actionable insights to help you make informed decisions and optimize your operations</span> 
+              </li>
+            </ul>
+            <Button className="rounded-sm bg-[#ffffff] text-[#000000] border border-[#000000] hover:bg-[#f0f0f0] mt-6" asChild>
+              <a href="#" className="flex items-center gap-2">
+                Learn More
+              </a>
+            </Button>
+          </>
         )}
       </div>
     </div>
