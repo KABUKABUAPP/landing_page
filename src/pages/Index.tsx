@@ -134,19 +134,19 @@ const Index = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Things we do</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { title: "Kabu Ride", img: "/designScreens/assets/ride-with-us/car_yellow.png" },
-                  { title: "Kabu Share", img: "/designScreens/assets/ride-with-us/car_red.png" },
-                  { title: "Kabu Later", img: "/designScreens/assets/ride-with-us/car_brown.png" },
-                  { title: "Kabu Drive", img: "/designScreens/assets/ride-with-us/car_pink.png" },
-                  { title: "Kabu Sharp", img: "/designScreens/assets/ride-with-us/car_purple.png" },
-                  { title: "Kabu Fleet", img: "/designScreens/assets/ride-with-us/car_cream.png" },
+                  { title: "Kabu Ride", img: "/designScreens/assets/ride-with-us/car_yellow.png", text: "Get a private, comfortable ride, anytime, anywhere in the city" },
+                  { title: "Kabu Share", img: "/designScreens/assets/ride-with-us/car_red.png", text: "Share rides, cut costs and reduce emissions by traveling with others" },
+                  { title: "Kabu Later", img: "/designScreens/assets/ride-with-us/car_brown.png", text: "Schedule rides in advance for hassle-free, on-time arrival" },
+                  { title: "Kabu Drive", img: "/designScreens/assets/ride-with-us/car_pink.png", text: "Own a car? Drive more with Kabukabu and earn more with low commissions" },
+                  { title: "Kabu Sharp", img: "/designScreens/assets/ride-with-us/car_purple.png", text: "Drive for Kabukabu without owning a car, vehicle's provided, just drive and earn" },
+                  { title: "Kabu Fleet", img: "/designScreens/assets/ride-with-us/car_cream.png", text: "For fleet owners, list and manage multiple vehicles on Kabukabu for streamlined, optimized returns" },
                 ].map((item) => (
                   <div key={item.title} className="flex items-center justify-between p-4 rounded-xl border bg-card">
-                    <div>
+                    <div className="mb-10">
                       <h3 className="font-semibold text-foreground">{item.title}</h3>
-                      <p className="text-sm text-muted-foreground">Fast, safe and reliable rides</p>
+                      <p className="text-sm text-muted-foreground">{item.text}</p>
                     </div>
-                    <img src={item.img} alt={item.title} className="w-20 h-auto" loading="lazy" />
+                    <img src={item.img} alt={item.title} className="w-20 h-auto mt-10" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -159,10 +159,8 @@ const Index = () => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                 More than an app, a community
               </h2>
-              <p className="mt-4 text-muted-foreground">
-                A reliable network of riders and drivers moving cities forward.
-                Join us to enjoy better rides, better earnings and a better
-                way to move every day.
+              <p className="mt-4">
+                At Kabukabu, we believe in building more than just a ride-hailing platform, we're creating a vibrant community where drivers and riders come together with shared goals of convenience, safety and mutual respect. Our platform offers a sense of belonging by offering tailored rewards, open communication and support for everyone. Whether you are a rider enjoying perks like student discounts or a driver benefiting from reduced commisions, Kabukabu ensures everyone is valued. Together we are shaving a community that thrives on connection, trust and the joy of every journey.
               </p>
             </div>
           </section>
@@ -195,8 +193,8 @@ const Index = () => {
                   />
                 </div>
                 <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Riders App</h3>
-                  <p className="text-sm text-muted-foreground mt-1">More ways to ride</p>
+                  <h3 className="font-semibold text-lg">Ride With Us</h3>
+                  <p className="text-sm mt-1">Get Kabukabu rider app and enjoy the riding experience.</p>
                 </div>
                 <div className="mt-6 flex justify-center gap-3">
                   <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
@@ -216,8 +214,8 @@ const Index = () => {
                   />
                 </div>
                 <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Drivers App</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Drive to earn</p>
+                  <h3 className="font-semibold text-lg">Drive With Us</h3>
+                  <p className="text-sm mt-1">Drive and earn seamlessly using the Kabukabu driver app.</p>
                 </div>
                 <div className="mt-6 flex justify-center gap-3">
                   <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />

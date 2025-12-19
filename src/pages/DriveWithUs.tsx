@@ -8,28 +8,28 @@ const steps = [
   {
     icon: Download,
     step: "01",
-    title: "Download the Driver App",
-    description: "Grab the Kabukabu Driver app from your store to get started.",
+    title: "Download the Kabukabu Driver App",
+    description: "Get started by downloading the Kabukabu Driver App from App Store or Google Play. It's quick and easy free to install.",
     link: "Get The App",
   },
   {
     icon: UserPlus,
     step: "02",
-    title: "Create your driver account",
-    description: "Sign up and submit the required details right in the app.",
+    title: "Sign Up Online",
+    description: "Join Kabukabu by filling out a simple registration form within the app. Tell us about yourself, your vehicle and submit your required documents for verification.",
     link: "View Requirements",
   },
   {
     icon: FileCheck,
     step: "03",
-    title: "Complete onboarding",
-    description: "Verification and short training help you hit the road confident.",
+    title: "Complete Your Onboarding",
+    description: "Once approved, we'll guide you through our onboarding process, which includes app training, saftey guidelines and tips on how to maximize your earnings.",
   },
   {
     icon: Car,
     step: "04",
-    title: "Start earning",
-    description: "Accept trip requests and enjoy fair commissions and tools.",
+    title: "Start Driving And Earning",
+    description: "You are ready to hit the road accept ride requests, provide great service and watch your earnings grow. With Kabukabu every ride you complete brings you closer to your financial goals.",
   },
 ];
 
@@ -81,12 +81,8 @@ const DriveWithUs = () => {
           <section className="py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
               <div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Drivers are the backbone of Kabukabu. We designed our platform
-                  to help you earn more with flexible hours, helpful tools and
-                  lower commissions. Whether you drive your own car, run a fleet
-                  or want to join our Sharp Driver program, you’ll find a fair
-                  way to work and win.
+                <p className="leading-relaxed">
+                  At Kabukabu we know drivers are the backbone of our service. That's why we have created a platform that empowers you to earn more, enjoy flexible hours and benefit from better opportunites. Whether you are looking for a full-time income or a part-time hustle, Kabukabu gives you the freedom and tools you need to thrive.
                 </p>
               </div>
               <div>
@@ -104,23 +100,34 @@ const DriveWithUs = () => {
           {/* Callouts */}
           <section className="py-12 bg-background">
             <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6">
-              <div className="rounded-2xl bg-cream p-8">
-                <h3 className="text-xl font-bold text-foreground">Make money when you want</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Choose your schedule and keep more of what you earn.
-                </p>
+              <div className="grid gap-6">
+                <div className="rounded-2xl bg-cream flex justify-center items-center h-[70vh]">
+                  <h3 className="text-xl font-bold text-foreground">Make money when you want</h3>
+                </div>
+                <div className="rounded-2xl border bg-card p-6">
+                  <h4 className="font-semibold text-foreground">Streamlined Trip Requests</h4>
+                  <p className="text-sm mt-1">
+                    Our driver app makes it very easy to receive and manage ride requests, ensuring that you spend less time waiting for passengers and more time earning. Efficient trip distribution means more rides and better utilization on the road.
+                  </p>
+                </div>
               </div>
               <div className="grid gap-6">
                 <div className="rounded-2xl border bg-card p-6">
-                  <h4 className="font-semibold text-foreground">Flexible Driving Hours</h4>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Drive on your terms and fit trips around your life.
+                  <h4 className="font-semibold text-foreground">Higher Earnings with Every Ride</h4>
+                  <p className="text-sm mt-1">
+                    At Kabukabu, we believe drivers should keep more of what they earn. That's why we offer one of the most driver-friendly platforms, allowing you to maximize your earnings without having to work extra hours.
                   </p>
                 </div>
                 <div className="rounded-2xl border bg-card p-6">
-                  <h4 className="font-semibold text-foreground">Enhanced Trip Requests</h4>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Smart dispatch helps balance demand so you waste less time.
+                  <h4 className="font-semibold text-foreground">Flexible Driving Hours</h4>
+                  <p className="text-sm mt-1">
+                    You're in control! Whether your prefer to drive mornings, nights or weekends, Kabukabu let's you choose when you want to drive. You have the freedom to set your schedule around your life, not the other way around.
+                  </p>
+                </div>
+                <div className="rounded-2xl border bg-card p-6">
+                  <h4 className="font-semibold text-foreground">Driver Incentives & Bonuses</h4>
+                  <p className="text-sm mt-1">
+                    We appreciate the hard work of our drivers, which is why we offer regular bonuses and incentives. From special milestone rewards to referral bonuses, Kabukabu helps to increase your earnings with ease.
                   </p>
                 </div>
               </div>
@@ -131,11 +138,13 @@ const DriveWithUs = () => {
           <section className="py-20 bg-header">
             <div className="container mx-auto px-4 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                How to <span className="text-primary">Get Started</span>
+                How to <span className="text-primary">Get Started</span> with Kabuakabu?
               </h2>
               <p className="text-white/70 mb-10 max-w-2xl">
                 Our driver app makes it easy to receive and manage ride
-                requests. Follow these simple steps to start earning.
+                requests, ensuring that you spend less time waiting for passengers
+                and more time earning. Efficient trip distribution means more rides
+                and better utilization of your time on the road.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {steps.map((s) => (
@@ -160,45 +169,32 @@ const DriveWithUs = () => {
           </section>
 
           {/* No car? Sharp Driver block */}
-          <section className="py-16 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-3 gap-6 items-stretch">
-              <div className="lg:col-span-1">
-                <div className="h-full rounded-2xl bg-cream border border-primary/30 p-6 flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-bold text-foreground leading-tight">No car? No problem.</h3>
-                    <p className="text-sm text-foreground font-semibold">Get started as a Sharp Driver with Kabukabu.</p>
-                    <p className="text-sm text-muted-foreground">
-                      Access a Kabukabu vehicle and hit the road without owning a car.
-                    </p>
-                  </div>
-                  <div className="mt-6">
-                    <Button className="rounded-full bg-foreground text-background hover:bg-foreground/90 px-6">
-                      Get started
-                    </Button>
-                  </div>
-                </div>
-              </div>
-              <div className="lg:col-span-2 space-y-4">
-                {[
-                  {
-                    title: "A car for flexible hours",
-                    desc: "Choose vehicle options and plans that match your schedule.",
-                  },
-                  {
-                    title: "Protect your earnings",
-                    desc: "Fair pricing, transparent commissions and timely payouts.",
-                  },
-                  {
-                    title: "Tools to help you grow",
-                    desc: "In-app support and safety features that keep trips smooth.",
-                  },
-                ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border bg-card p-5">
-                    <h4 className="font-semibold text-foreground">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground mt-2">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+          <section className="py-16">
+            <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                No Car? No Problem!
+              </h2>
+              <p className="mt-4">
+                Are you eager to drive but don't own a vehicle? Kabukabu's sharp driver program is designed just for you! We provide the cars, you provide the driving. Join our team of Sharp Drivers and start earning wih ease.
+              </p>
+              <Button className="rounded-sm bg-[#ffffff] text-[#000000] border border-[#000000] hover:bg-[#f0f0f0] mt-6" asChild>
+                <a href="#" className="flex items-center gap-2">
+                  Learn More
+                </a>
+              </Button>
+            </div>
+          </section>
+
+          {/* Wide rider image */}
+          <section className="py-8 bg-background">
+            <div className="container mx-auto px-4 lg:px-8">
+              <img
+                src="/designScreens/assets/ride-with-us/community_businesswoman_car.png"
+                alt="Rider using Kabukabu in a car"
+                className="w-full h-auto rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           </section>
 
@@ -213,47 +209,70 @@ const DriveWithUs = () => {
                 />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-foreground">Safety Comes First</h3>
-                <ul className="mt-4 space-y-2 text-muted-foreground">
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-primary mt-1"/> In‑ride safety tools and support</li>
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-primary mt-1"/> Verified riders and ratings</li>
-                  <li className="flex items-start gap-2"><Check className="w-4 h-4 text-primary mt-1"/> Clear pricing and fair policies</li>
-                </ul>
+                <>
+                  <p className="text-lg my-5 font-bold">Safety Comes First</p>
+
+                  <p className="text-md my-5">At Kabukabu, we priortize your safety as much as we do our riders. Our app includes real-time trip tracking, emergency assistance features and a robust driver verification process to ensure that every ride is as safe as it is smooth. Whether you are driving in the city or the suburbs, you can count on Kabukabu to support you every step of the way.</p>
+
+                  <p className="text-lg my-5 font-bold">Safety Features Include</p>
+
+                  <ul className="space-y-4">
+                    <li>
+                      <span className="font-bold">Driver Background Checks</span><br />
+                      <span className="text-muted-foreground">Verified drivers only</span> 
+                    </li>
+                    <li>
+                      <span className="font-bold">In-App Safety Tools</span><br />
+                      <span className="text-muted-foreground">Instant emergency assistance and trip sharing</span> 
+                    </li>
+                    <li>
+                      <span className="font-bold">Cashless Payments</span><br />
+                      <span className="text-muted-foreground">Reduce the risk of handling cash by accepting payments securely through the app</span> 
+                    </li>
+                  </ul>
+                </>
               </div>
             </div>
           </section>
 
-          {/* Download */}
+          {/* Split phones download */}
           <section id="download" className="py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+              {/* Rider card */}
               <div className="bg-muted/40 rounded-2xl p-6 border">
                 <div className="flex justify-center">
                   <img
-                    src="/designScreens/assets/drive-with-us/phone_card_driver.png"
-                    alt="Driver app"
+                    src="/designScreens/assets/ride-with-us/phone_card_rider.png"
+                    alt="Rider app screenshot"
                     className="w-[260px] md:w-[300px]"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Drivers App</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Drive to earn</p>
+                  <h3 className="font-semibold text-lg">Ride With Us</h3>
+                  <p className="text-sm mt-1">Get Kabukabu rider app and enjoy the riding experience.</p>
                 </div>
                 <div className="mt-6 flex justify-center gap-3">
                   <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
                   <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Get it on Google Play" className="h-10 w-auto" />
                 </div>
               </div>
+
+              {/* Driver card */}
               <div className="bg-muted/40 rounded-2xl p-6 border">
                 <div className="flex justify-center">
                   <img
-                    src="/designScreens/assets/drive-with-us/phone_card_rider.png"
-                    alt="Rider app"
+                    src="/designScreens/assets/ride-with-us/phone_card_driver.png"
+                    alt="Driver app screenshot"
                     className="w-[260px] md:w-[300px]"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Riders App</h3>
-                  <p className="text-sm text-muted-foreground mt-1">More ways to ride</p>
+                  <h3 className="font-semibold text-lg">Drive With Us</h3>
+                  <p className="text-sm mt-1">Drive and earn seamlessly using the Kabukabu driver app.</p>
                 </div>
                 <div className="mt-6 flex justify-center gap-3">
                   <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />

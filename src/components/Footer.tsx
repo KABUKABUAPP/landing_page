@@ -45,13 +45,13 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 Kabukabu. All rights reserved.
+            © {new Date().getFullYear()} Kabukabu. All rights reserved.
           </p>
           
           {/* Center logo */}
           <Link to="/" className="flex items-center" aria-label="Kabukabu Home">
             <img 
-              src="/designScreens/kabukabuLogo.png" 
+              src="/designScreens/kabukabuLogoBlack.png" 
               alt="Kabukabu" 
               className="h-8 w-auto md:h-10"
               loading="lazy"
