@@ -154,7 +154,7 @@ const Index = () => {
           </section>
 
           {/* Community CTA text */}
-          <section className="py-16 bg-cream">
+          <section className="py-16">
             <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground">
                 More than an app, a community
