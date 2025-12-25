@@ -20,7 +20,7 @@ const Index = () => {
         <main>
           {/* Hero */}
           <section
-            className="relative min-h-screen flex items-center"
+            className="relative min-h-[70vh] sm:min-h-screen flex items-center"
             style={{
               backgroundImage:
                 "url(/designScreens/assets/ride-with-us/hero_rider_mask.png)",
@@ -30,15 +30,15 @@ const Index = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent" />
             <div className="container mx-auto px-4 lg:px-8 relative">
-              <div className="max-w-2xl pt-24 pb-16">
-                <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+              <div className="max-w-2xl pt-16 sm:pt-24 pb-12 sm:pb-16">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight">
                   Your Premium Ride-Hailing Experience!
                 </h1>
-                <p className="mt-4 text-white/80 text-lg md:text-xl">
+                <p className="mt-4 text-white/80 text-base sm:text-lg md:text-xl">
                   Safe, reliable and comfortable rides for every journey.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-4">
-                  <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base">
                     <a href="#download" className="flex items-center gap-2">
                       Download the App
                       <ArrowRight className="w-5 h-5" />
@@ -50,9 +50,9 @@ const Index = () => {
           </section>
 
           {/* Why You'll Love Us */}
-          <section className="py-20 bg-background">
+          <section className="py-12 sm:py-16 lg:py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-center text-2xl md:text-3xl font-bold text-foreground mb-12">
+              <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-12">
                 Here's Why You'll Love Us
               </h2>
               <div className="grid lg:grid-cols-3 gap-10 items-center">
@@ -77,15 +77,15 @@ const Index = () => {
                 {/* Center phone */}
                 <div className="relative flex justify-center items-center">
                   {/* decorative rings behind phone */}
-                  <div className="absolute -z-10 w-[360px] h-[360px] md:w-[480px] md:h-[480px] rounded-full border border-muted/40" />
-                  <div className="absolute -z-10 w-[520px] h-[520px] md:w-[680px] md:h-[680px] rounded-full border border-muted/20" />
-                  <img
-                    src="/designScreens/assets/ride-with-us/phone_rider_full.png"
-                    alt="Kabukabu app on phone"
-                    className="w-[260px] md:w-[300px] drop-shadow-xl"
-                    loading="lazy"
-                    decoding="async"
-                  />
+                <div className="absolute -z-10 w-[240px] h-[240px] sm:w-[320px] sm:h-[320px] md:w-[480px] md:h-[480px] rounded-full border border-muted/40" />
+                <div className="absolute -z-10 w-[320px] h-[320px] sm:w-[440px] sm:h-[440px] md:w-[680px] md:h-[680px] rounded-full border border-muted/20" />
+                <img
+                  src="/designScreens/assets/ride-with-us/phone_rider_full.png"
+                  alt="Kabukabu app on phone"
+                  className="w-[220px] sm:w-[240px] md:w-[300px] drop-shadow-xl"
+                  loading="lazy"
+                  decoding="async"
+                />
                 </div>
 
                 {/* Right features */}
@@ -107,8 +107,8 @@ const Index = () => {
           </section>
 
           {/* Community section */}
-          <section className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 pt-5">
+          <section className="py-12 sm:py-16 lg:py-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 pt-4 sm:pt-5">
               <div>
                 <img
                   src="/designScreens/assets/ride-with-us/community_businesswoman_car.png"
@@ -119,7 +119,7 @@ const Index = () => {
                 />
               </div>
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
                   We build a better community for all users
                 </h2>
                 {/* Tabs */}
@@ -129,9 +129,9 @@ const Index = () => {
           </section>
 
           {/* Things we do */}
-          <section className="py-16 bg-background">
+          <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Things we do</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-8">Things we do</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: "Kabu Ride", img: "/designScreens/assets/ride-with-us/car_yellow.png", text: "Get a private, comfortable ride, anytime, anywhere in the city" },
@@ -141,12 +141,12 @@ const Index = () => {
                   { title: "Kabu Sharp", img: "/designScreens/assets/ride-with-us/car_purple.png", text: "Drive for Kabukabu without owning a car, vehicle's provided, just drive and earn" },
                   { title: "Kabu Fleet", img: "/designScreens/assets/ride-with-us/car_cream.png", text: "For fleet owners, list and manage multiple vehicles on Kabukabu for streamlined, optimized returns" },
                 ].map((item) => (
-                  <div key={item.title} className="flex items-center justify-between p-4 rounded-xl border bg-card">
-                    <div className="mb-10">
+                  <div key={item.title} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border bg-card">
+                    <div className="sm:mb-0">
                       <h3 className="font-semibold text-foreground">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.text}</p>
                     </div>
-                    <img src={item.img} alt={item.title} className="w-20 h-auto mt-10" loading="lazy" />
+                    <img src={item.img} alt={item.title} className="w-16 sm:w-20 h-auto sm:mt-0" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -154,9 +154,9 @@ const Index = () => {
           </section>
 
           {/* Community CTA text */}
-          <section className="py-16">
+          <section className="py-12 sm:py-16">
             <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
                 More than an app, a community
               </h2>
               <p className="mt-4">
@@ -179,10 +179,10 @@ const Index = () => {
           </section>
 
           {/* Split phones download */}
-          <section id="download" className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+          <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-end">
               {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_rider.png"
@@ -203,7 +203,7 @@ const Index = () => {
               </div>
 
               {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_driver.png"
@@ -240,7 +240,7 @@ const CommunityTabsBlock = () => {
   const TabButton = ({ id, label }: { id: 'riders' | 'drivers' | 'fleet'; label: string }) => (
     <button
       onClick={() => setActive(id)}
-      className={`px-4 py-2 text-sm font-semibold transition-colors${
+      className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap${
         active === id
           ? ' bg-primary text-primary-foreground rounded-full'
           : ' text-muted-foreground'
@@ -252,7 +252,7 @@ const CommunityTabsBlock = () => {
 
   return (
     <div className="mt-6">
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-2 sm:gap-3">
         <TabButton id="riders" label="Riders" />
         <TabButton id="drivers" label="Drivers" />
         <TabButton id="fleet" label="Fleet Owners" />
@@ -260,9 +260,9 @@ const CommunityTabsBlock = () => {
       <div className="mt-4">
         {active === 'riders' && (
           <>
-            <p className="text-lg my-5">Convenience at Your Fingertips</p>
+            <p className="text-base sm:text-lg my-5">Convenience at Your Fingertips</p>
 
-            <p className="text-md my-5">Getting from point A to B has never been easier. With the Kabukabu app, you can book a ride with just a few taps, track your driver in real-time and enjoy cachless payments. Whethere you are running late for a meeting or heading out for an evening with friends, we have you covered.</p>
+            <p className="text-sm sm:text-base my-5">Getting from point A to B has never been easier. With the Kabukabu app, you can book a ride with just a few taps, track your driver in real-time and enjoy cachless payments. Whethere you are running late for a meeting or heading out for an evening with friends, we have you covered.</p>
 
             <ul className="space-y-4">
               <li>
@@ -282,9 +282,9 @@ const CommunityTabsBlock = () => {
         )}
         {active === 'drivers' && (
           <>
-            <p className="text-lg my-5">Your Success, Our Priority</p>
+            <p className="text-base sm:text-lg my-5">Your Success, Our Priority</p>
 
-            <p className="text-md my-5">Join our community of drivers who enjoy reduced commisions, flexible schedules and fantastic earning potential. Kabukabu empowers you to earn more and provide better service to your riders.</p>
+            <p className="text-sm sm:text-base my-5">Join our community of drivers who enjoy reduced commisions, flexible schedules and fantastic earning potential. Kabukabu empowers you to earn more and provide better service to your riders.</p>
 
             <ul className="space-y-4">
               <li>
@@ -304,9 +304,9 @@ const CommunityTabsBlock = () => {
         )}
         {active === 'fleet' && (
           <>
-            <p className="text-lg my-5">Maximize Your Earnings With Kabukabu</p>
+            <p className="text-base sm:text-lg my-5">Maximize Your Earnings With Kabukabu</p>
 
-            <p className="text-md my-5">Are you a fleet owner looking to expand your business and increase profitablility? Kabukabu offers the perfect solution to help you optimize your fleet's potential and earn more without the hassle of managing every detail. With our platform, you can easily manage your vehicles, drivers and operations while maintaining a steady income stream.</p>
+            <p className="text-sm sm:text-base my-5">Are you a fleet owner looking to expand your business and increase profitablility? Kabukabu offers the perfect solution to help you optimize your fleet's potential and earn more without the hassle of managing every detail. With our platform, you can easily manage your vehicles, drivers and operations while maintaining a steady income stream.</p>
 
             <ul className="space-y-4">
               <li>

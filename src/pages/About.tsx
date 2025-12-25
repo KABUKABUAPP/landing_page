@@ -8,8 +8,46 @@ import {
   Shield,
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 
 const About = () => {
+  const serviceTabs = [
+    {
+      key: "riders",
+      label: "For Riders",
+      title: "Ride with Ease",
+      body:
+        "With just a few taps, you can book a comfortable, reliable, and affordable ride. Enjoy perks like discounts for students and frequent riders, all while traveling in style.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Ride with ease",
+    },
+    {
+      key: "drivers",
+      label: "For Drivers",
+      title: "Drive with Confidence",
+      body: "Placeholder content for drivers tab.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Drive with confidence",
+    },
+    {
+      key: "fleet",
+      label: "For Fleet Owners",
+      title: "Manage Your Fleet",
+      body: "Placeholder content for fleet owners tab.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Manage your fleet",
+    },
+    {
+      key: "sharp",
+      label: "For Sharp Drivers",
+      title: "Sharp Drivers Program",
+      body: "Placeholder content for sharp drivers tab.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Sharp drivers program",
+    },
+  ];
+  const [activeServiceTab, setActiveServiceTab] = useState(serviceTabs[0]);
+
   return (
     <>
       <Helmet>
@@ -37,11 +75,11 @@ const About = () => {
             </div>
           </section>
 
-          <section className="mx-auto w-full max-w-[100vw] p-15 my-20">
-            <h2 className="text-[22px] font-semibold text-[#1a1a1a] text-start w-full px-20">
+          <section className="mx-auto w-full max-w-[100vw] px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-20">
+            <h2 className="text-[22px] font-semibold text-[#1a1a1a] text-start w-full">
               Redefining the Ride&ndash;Hailing Experience
             </h2>
-            <p className="mt-4 w-[60vw] flex items-center justify-start px-20 text-[14px] leading-relaxed text-[#333] text-start">
+            <p className="mt-4 w-full lg:w-[60vw] text-[14px] leading-relaxed text-[#333] text-start">
               Welcome to Kabukabu, where we&rsquo;re redefining the ride-hailing
               experience for drivers and passengers alike. Kabukabu was founded
               with a simple vision: to create a seamless, enjoyable, and affordable
@@ -52,14 +90,14 @@ const About = () => {
             </p>
           </section>
 
-          <section className="mx-auto w-full max-w-[100vw] px-20 my-20">
-            <div className="grid items-start gap-10 lg:grid-cols-2 gap-6">
+          <section className="mx-auto w-full max-w-[100vw] px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
               <img
                 src="/designScreens/assets/about/about_person_car.png"
                 alt="Kabukabu mission"
-                className="h-auto rounded-lg object-cover"
+                className="h-auto w-full rounded-lg object-cover"
               />
-              <div className="pt-[25vh]">
+              <div className="pt-6 lg:pt-[25vh]">
                 <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
                   Our <span className="text-[#f7c332]">Mission</span>
                 </h3>
@@ -129,8 +167,9 @@ const About = () => {
             </div>
           </section>*/}
 
-          <section className="py-20 px-20">
-            <div className="mx-auto w-full max-w-[1428px] px-6 lg:px-0">
+          {/* Our Services */}
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
+            <div className="mx-auto w-full max-w-[1428px] px-0">
               <h3 className="text-center text-[22px] font-semibold text-[#1a1a1a]">
                 Our Services
               </h3>
@@ -138,43 +177,48 @@ const About = () => {
                 Kabukabu offers a range of services designed to meet the
                 transportation needs of different groups:
               </p>
+              {/* Tab Buttons */}
               <div className="mt-6 flex flex-wrap justify-center gap-4">
-                <span className="rounded-full bg-[#f7c332] px-[22px] py-[8px] text-[14px] font-semibold text-black">
-                  For Riders
-                </span>
-                <span className="rounded-full border border-[#e5e5e5] px-[22px] py-[8px] text-[14px] text-[#9b9b9b]">
-                  For Drivers
-                </span>
-                <span className="rounded-full border border-[#e5e5e5] px-[22px] py-[8px] text-[14px] text-[#9b9b9b]">
-                  For Fleet Owners
-                </span>
-                <span className="rounded-full border border-[#e5e5e5] px-[22px] py-[8px] text-[14px] text-[#9b9b9b]">
-                  For Sharp Drivers
-                </span>
+                {serviceTabs.map((tab) => {
+                  const isActive = activeServiceTab.key === tab.key;
+                  return (
+                    <button
+                      key={tab.key}
+                      type="button"
+                      onClick={() => setActiveServiceTab(tab)}
+                      className={`rounded-full px-[22px] py-[8px] text-[14px] ${
+                        isActive
+                          ? "bg-[#f7c332] font-semibold text-black"
+                          : "border border-[#e5e5e5] text-[#9b9b9b]"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
               </div>
-              <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
+              {/* Tab Content */}
+              <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
                 <img
-                  src="/designScreens/assets/about/about_person_car.png"
-                  alt="Ride with ease"
-                  className="h-25 w-25 rounded-[24px] object-cover"
+                  src={activeServiceTab.image}
+                  alt={activeServiceTab.alt}
+                  className="h-auto w-full rounded-[24px] object-cover"
                 />
-                <div className="pt-[25vh]">
+                <div className="pt-6 lg:pt-[25vh]">
                   <h4 className="text-[20px] font-semibold text-[#1a1a1a]">
-                    Ride with Ease
+                    {activeServiceTab.title}
                   </h4>
                   <p className="mt-3 max-w-[520px] text-[14px] leading-relaxed text-[#4a4a4a]">
-                    With just a few taps, you can book a comfortable, reliable, and
-                    affordable ride. Enjoy perks like discounts for students and
-                    frequent riders, all while traveling in style.
+                    {activeServiceTab.body}
                   </p>
                 </div>
               </div>
             </div>
           </section>
 
-          <section className="py-20 px-20">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
             <div
-              className="relative mx-auto w-full max-w-[1428px] px-6 lg:px-0"
+              className="relative mx-auto w-full max-w-[1428px] px-0"
               style={{
                 backgroundImage:
                   "radial-gradient(circle at 80% 30%, rgba(0,0,0,0.06) 1px, transparent 2px), radial-gradient(circle at 80% 30%, rgba(0,0,0,0.05) 1px, transparent 2px), radial-gradient(circle at 80% 30%, rgba(0,0,0,0.04) 1px, transparent 2px)",
@@ -191,8 +235,8 @@ const About = () => {
                 reflect our commitment to innovation, integrity, community, and
                 safety.
               </p>
-              <div className="mt-10 flex flex-col gap-6 lg:flex-row">
-                <div className="rounded-lg bg-[#f7f7f7] p-6 h-[50vh] w-[25%]">
+              <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Lightbulb className="h-5 w-5 text-[#f7c332]" />
                   <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
                     Innovation
@@ -203,7 +247,7 @@ const About = () => {
                     drivers and riders.
                   </p>
                 </div>
-                <div className="rounded-lg bg-[#f7f7f7] p-6 h-[50vh] w-[25%]">
+                <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Heart className="h-5 w-5 text-[#f7c332]" />
                   <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
                     Integrity
@@ -213,7 +257,7 @@ const About = () => {
                     ensuring a fair and reliable platform for all.
                   </p>
                 </div>
-                <div className="rounded-lg bg-[#f7f7f7] p-6 h-[50vh] w-[25%]">
+                <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Users className="h-5 w-5 text-[#f7c332]" />
                   <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
                     Community
@@ -225,7 +269,7 @@ const About = () => {
                     rely on.
                   </p>
                 </div>
-                <div className="rounded-lg bg-[#f7f7f7] p-6 h-[50vh] w-[25%]">
+                <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Shield className="h-5 w-5 text-[#f7c332]" />
                   <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
                     Safety
@@ -240,9 +284,9 @@ const About = () => {
             </div>
           </section>
 
-          <section className="py-20 px-20">
-            <div className="mx-auto w-full max-w-[100vw] px-6 lg:grid lg:grid-cols-2">
-              <div className="pt-[25vh]">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
+            <div className="mx-auto w-full max-w-[100vw] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+              <div className="pt-6 lg:pt-[25vh]">
                 <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
                   Our <span className="text-[#f7c332]">Vision</span>
                 </h3>
@@ -263,19 +307,19 @@ const About = () => {
             </div>
           </section>
 
-          <section className="py-20 px-20">
-            <div className="mx-auto w-full max-w-[100vw] px-6">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
+            <div className="mx-auto w-full max-w-[100vw] px-0">
               <h3 className="text-[28px] font-semibold text-[#1a1a1a]">
                 Our People
               </h3>
-              <div className="mt-8 space-y-5">
-                <div className="grid items-start gap-10 grid-cols-2">
+              <div className="mt-8 space-y-8 lg:space-y-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
                   <img
                     src="/designScreens/assets/about/about_person_car.png"
                     alt="Kabukabu people"
                     className="h-auto w-full rounded-lg object-cover"
                   />
-                  <div className="pt-[25vh]">
+                  <div className="pt-6 lg:pt-[25vh]">
                     <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
@@ -294,8 +338,8 @@ const About = () => {
                   </div>
                 </div>
 
-                <div className="grid items-start gap-10 lg:grid-cols-2">
-                  <div className="pt-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
+                  <div className="pt-6 lg:pt-[25vh]">
                     <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
@@ -319,13 +363,13 @@ const About = () => {
                   />
                 </div>
 
-                <div className="grid items-start gap-10 grid-cols-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
                   <img
                     src="/designScreens/assets/about/about_person_car.png"
                     alt="Kabukabu people"
                     className="h-auto w-full rounded-lg object-cover"
                   />
-                  <div className="pt-[25vh]">
+                  <div className="pt-6 lg:pt-[25vh]">
                     <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
@@ -347,8 +391,8 @@ const About = () => {
             </div>
           </section>
 
-          <section className="py-20 px-20">
-            <div className="mx-auto w-full max-w-[1428px] px-6 text-center lg:px-0">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
+            <div className="mx-auto w-full max-w-[1428px] px-0 text-center">
               <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
                 More than an app, a community
               </h3>
@@ -367,14 +411,14 @@ const About = () => {
               <img
                 src="/designScreens/assets/about/about_person_car.png"
                 alt="Kabukabu community"
-                className="mt-8 h-[613px] w-full rounded-[24px] object-cover"
+                className="mt-8 h-[280px] w-full rounded-[24px] object-cover sm:h-[420px] lg:h-[613px]"
               />
             </div>
           </section>
 
           {/* Split phones download */}
-          <section id="download" className="py-20 px-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+          <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
               {/* Rider card */}
               <div className="bg-muted/40 rounded-2xl p-6 border">
                 <div className="flex justify-center">

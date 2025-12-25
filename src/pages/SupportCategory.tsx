@@ -25,9 +25,9 @@ const SupportCategory = () => {
       </Helmet>
       <div className="min-h-screen">
         <Header />
-        <main className="pt-20">
+        <main className="pt-16 sm:pt-20">
           {/* Breadcrumb */}
-          <div className="bg-cream py-4">
+          <div className="bg-cream py-3 sm:py-4">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="flex items-center gap-2 text-sm">
                 <Link to="/support" className="text-primary hover:underline">Support</Link>
@@ -38,9 +38,9 @@ const SupportCategory = () => {
           </div>
 
           {/* Content */}
-          <section className="py-12 bg-cream">
+          <section className="py-10 sm:py-12 bg-cream">
             <div className="container mx-auto px-4 lg:px-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-8">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground text-center mb-8">
                 {categoryTitle} Support
               </h1>
               
@@ -51,7 +51,7 @@ const SupportCategory = () => {
                   <input 
                     type="text"
                     placeholder="Type your question"
-                    className="w-full pl-12 pr-4 py-4 border border-border rounded-lg text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full pl-12 pr-4 py-3 sm:py-4 border border-border rounded-lg text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
@@ -62,7 +62,7 @@ const SupportCategory = () => {
                   <Link
                     key={index}
                     to={`/support/${category}/article`}
-                    className="flex items-center justify-between p-4 bg-background border border-border rounded-lg hover:shadow-md transition-all group"
+                    className="flex items-center justify-between p-4 sm:p-5 bg-background border border-border rounded-lg hover:shadow-md transition-all group"
                   >
                     <span className="text-foreground">{item}</span>
                     <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />

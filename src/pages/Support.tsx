@@ -21,11 +21,11 @@ const Support = () => {
       </Helmet>
       <div className="min-h-screen">
         <Header />
-        <main className="pt-20">
+        <main className="pt-16 sm:pt-20">
           {/* Hero Section */}
-          <section className="py-16 bg-cream">
+          <section className="py-12 sm:py-16 bg-cream">
             <div className="container mx-auto px-4 lg:px-8 text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8">
                 How can we help?
               </h1>
               
@@ -36,21 +36,21 @@ const Support = () => {
                   <input 
                     type="text"
                     placeholder="Type your question"
-                    className="w-full pl-12 pr-4 py-4 border border-border rounded-lg text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full pl-12 pr-4 py-3 sm:py-4 border border-border rounded-lg text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
               </div>
 
               {/* Categories */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
                 {categories.map((category) => (
                   <Link
                     key={category.label}
                     to={category.href}
-                    className="bg-background border border-border rounded-xl p-6 hover:shadow-lg transition-all text-center group"
+                    className="bg-background border border-border rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all text-center group"
                   >
-                    <div className="w-12 h-12 bg-cream rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
-                      <category.icon className="w-6 h-6 text-foreground group-hover:text-primary transition-colors" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cream rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
+                      <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-foreground group-hover:text-primary transition-colors" />
                     </div>
                     <span className="font-medium text-foreground">{category.label}</span>
                   </Link>
@@ -59,8 +59,8 @@ const Support = () => {
             </div>
           </section>
 
-          <section className="py-20 px-20">
-            <div className="mx-auto w-full max-w-[1428px] px-6 text-center lg:px-0">
+          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
+            <div className="mx-auto w-full max-w-[1428px] px-0 text-center">
               <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
                 More than an app, a community
               </h3>
@@ -79,16 +79,16 @@ const Support = () => {
               <img
                 src="/designScreens/assets/about/about_person_car.png"
                 alt="Kabukabu community"
-                className="mt-8 h-[613px] w-full rounded-[24px] object-cover"
+                className="mt-8 h-[280px] w-full rounded-[24px] object-cover sm:h-[420px] lg:h-[613px]"
               />
             </div>
           </section>
 
           {/* Split phones download */}
-          <section id="download" className="py-20 px-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+          <section id="download" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-end">
               {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_rider.png"
@@ -109,7 +109,7 @@ const Support = () => {
               </div>
 
               {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_driver.png"

@@ -34,14 +34,14 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-background">
+    <section id="faq" className="py-12 sm:py-16 lg:py-28 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-base sm:text-lg">
               Got questions? We've got answers.
             </p>
           </div>
@@ -51,12 +51,12 @@ const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6"
+                className="bg-card border border-border rounded-xl px-4 sm:px-6"
               >
-                <AccordionTrigger className="text-left text-foreground font-semibold py-5 hover:no-underline">
+                <AccordionTrigger className="text-left text-foreground font-semibold py-4 sm:py-5 hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-5">
+                <AccordionContent className="text-muted-foreground pb-4 sm:pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

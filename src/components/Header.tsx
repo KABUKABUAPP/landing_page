@@ -19,6 +19,58 @@ const Header = () => {
     { label: "Support", href: "/support" },
   ];
 
+  const menuTabs = [
+    {
+      key: "ride",
+      label: "Ride with us",
+      leftTitle: "Great rides,\n better comfort",
+      middleTitle: "Rider Features",
+      middleItems: ["Kabu Rider", "Rewards Program"],
+      rightTitle: "Get Kabukabu Rider App",
+    },
+    {
+      key: "drive",
+      label: "Drive with us",
+      leftTitle: "0% commission,\n unlimited incentives",
+      middleTitle: "Driver Features",
+      middleItems: ["Kabu Driver", "Sharp Program"],
+      rightTitle: "Get Kabukabu Driver App",
+    },
+    {
+      key: "company",
+      label: "Company",
+      leftTitle: "Building\n mobility for all",
+      middleTitle: "Company Highlights",
+      middleItems: ["Mission", "Vision"],
+      rightTitle: "Learn More",
+    },
+    {
+      key: "cities",
+      label: "Cities",
+      leftTitle: "Serving\n more communities",
+      middleTitle: "Available Cities",
+      middleItems: ["Coming Soon", "Coming Soon"],
+      rightTitle: "Explore Cities",
+    },
+    {
+      key: "safety",
+      label: "Safety",
+      leftTitle: "Safety-first\n rides and drives",
+      middleTitle: "Safety Features",
+      middleItems: ["In-app tools", "Trusted drivers"],
+      rightTitle: "Safety Overview",
+    },
+    {
+      key: "support",
+      label: "Support",
+      leftTitle: "Help when\n you need it",
+      middleTitle: "Support Options",
+      middleItems: ["Help Center", "Contact Us"],
+      rightTitle: "Visit Support",
+    },
+  ];
+  const [activeMenuTab, setActiveMenuTab] = useState(menuTabs[0]);
+
   // Pages that have a hero where the header should overlay/blend in
   const overlayRoutes = [
     "/",
@@ -119,34 +171,11 @@ const Header = () => {
           <DialogContent className="w-[95vw] h-[90vh] max-w-5xl p-0 overflow-hidden bg-white sm:rounded-3xl shadow-xl">
             <div className="flex flex-col h-full">
               {/* Top bar */}
-              <div className="flex items-center justify-between px-5 py-4 md:px-8 bg-muted/40 border-b">
+              <div className="flex items-center justify-between px-4 sm:px-5 py-4 md:px-8 bg-muted/40 border-b">
                 <div className="flex items-center gap-6">
                   <Link to="/" onClick={() => setIsMenuOpen(false)} className="inline-flex items-center">
-                    <img src="/designScreens/kabukabuLogo.png" alt="Kabukabu" className="h-8 w-auto" />
+                    <img src="/designScreens/kabukabuLogoBlack.png" alt="Kabukabu" className="h-8 w-auto" />
                   </Link>
-                  <nav className="hidden md:flex items-center gap-2">
-                    {[
-                      { label: "Ride with us", href: "/" },
-                      { label: "Drive with us", href: "/drive-with-us" },
-                      { label: "Company", href: "/about" },
-                      { label: "Cities", href: "#" },
-                      { label: "Safety", href: "#" },
-                      { label: "Support", href: "/support" },
-                    ].map((link) => (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        onClick={() => setIsMenuOpen(false)}
-                        className={`text-sm font-semibold px-3 py-2 rounded-full transition-colors ${
-                          location.pathname === link.href || (link.href === "/" && location.pathname === "/")
-                            ? 'bg-primary text-primary-foreground'
-                            : 'text-foreground hover:bg-muted'
-                        }`}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="hidden md:flex items-center gap-4 text-sm font-medium">
@@ -170,22 +199,55 @@ const Header = () => {
                 </div>
               </div>
 
+              {/* Nav Tabs */}
+              <nav className="flex items-center gap-2 my-4 md:my-5 mx-4 md:mx-10 overflow-x-auto md:overflow-visible">
+                {menuTabs.map((tab) => {
+                  const isActive = activeMenuTab.key === tab.key;
+                  return (
+                    <button
+                      key={tab.key}
+                      type="button"
+                      onClick={() => setActiveMenuTab(tab)}
+                      className={`text-xs sm:text-sm font-semibold px-3 py-2 rounded-full whitespace-nowrap transition-colors ${
+                        isActive
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  );
+                })}
+              </nav>
+
               {/* Content */}
-              <div className="grid md:grid-cols-[1.1fr_1fr_0.9fr] gap-6 px-5 py-6 md:px-8 md:py-10 bg-muted/20 flex-1 overflow-y-auto">
+              <div className="grid md:grid-cols-[1.1fr_1fr_0.9fr] gap-4 sm:gap-6 px-4 sm:px-5 py-5 sm:py-6 md:px-8 md:py-10 bg-muted/20 flex-1 overflow-y-auto">
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex items-center">
-                  <p className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                    5% commission, <br /> unlimited incentives
+                  <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                    {activeMenuTab.leftTitle.split("\n").map((line, index) => (
+                      <span key={line}>
+                        {line}
+                        {index === 0 && <br />}
+                      </span>
+                    ))}
                   </p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Driver Features</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-4">
+                    {activeMenuTab.middleTitle}
+                  </h3>
                   <ul className="space-y-3 text-sm text-muted-foreground">
-                    <li className="text-foreground font-medium">Kabu Driver</li>
-                    <li className="text-foreground font-medium">Sharp Program</li>
+                    {activeMenuTab.middleItems.map((item) => (
+                      <li key={item} className="text-foreground font-medium">
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col items-center justify-center gap-4">
-                  <p className="text-center text-sm font-semibold text-foreground">Get Kabukabu Driver App</p>
+                  <p className="text-center text-sm font-semibold text-foreground">
+                    {activeMenuTab.rightTitle}
+                  </p>
                   <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Google Play" className="h-12 w-auto" />
                   <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="App Store" className="h-12 w-auto" />
                 </div>

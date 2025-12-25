@@ -23,7 +23,7 @@ const DriveForUs = () => {
         <main>
           {/* Hero */}
           <section
-            className="relative min-h-[80vh] flex items-center bg-header"
+            className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center bg-header"
             style={{
               backgroundImage: "url(/designScreens/assets/sharp-driver/hero_sharp_driver.png)",
               backgroundSize: "cover",
@@ -31,13 +31,13 @@ const DriveForUs = () => {
             }}
           >
             <div className="absolute inset-0 bg-black/50" />
-            <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
+            <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-16 sm:pt-24 pb-12 sm:pb-16">
               <div className="max-w-xl">
                 <p className="text-white/80 text-sm mb-2">Become a Sharp Driver with Kabukabu</p>
-                <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">Drive with Our Cars, Earn with Us</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight">Drive with Our Cars, Earn with Us</h1>
                 <p className="mt-3 text-white/80">No Car? No Problem! Drive with Kabukabu's Sharp Driver Program.</p>
                 <div className="mt-8">
-                  <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base">
                     <a href="#" className="inline-flex items-center gap-2">
                       Get The App
                       <ArrowRight className="w-5 h-5" />
@@ -49,8 +49,8 @@ const DriveForUs = () => {
           </section>
 
           {/* Illustration with labels */}
-          <section className="grid md:grid-cols-2 py-16 bg-background">
-            <div className="px-[10vw] py-[20vh]">
+          <section className="grid grid-cols-1 md:grid-cols-2 py-12 sm:py-16 bg-background">
+            <div className="px-4 sm:px-8 lg:px-[10vw] py-8 sm:py-12 lg:py-[20vh]">
               <p>Are you eager to drive but you don't own a vehicle? Kabukabu's Sharp Driver program is designed just for you! We provide the cars, you provide the driving. Join our team of Sharp Drivers and start earning with ease.</p>
               <div className="mt-8">
                 <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
@@ -73,9 +73,9 @@ const DriveForUs = () => {
           </section>
 
           {/* Why choose cards */}
-          <section className="py-16 bg-background">
+          <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Why Choose the Sharp Driver Program</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-8">Why Choose the Sharp Driver Program</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: "Drive a Kabukabu vehicle", img: "/designScreens/assets/sharp-driver/car_white.png", text: "No need to worry about powning a car. Kabukabu provides the vehicle, fully equipped and ready to go. Just focus on providing excellent service and maximizing your earnings." },
@@ -84,12 +84,12 @@ const DriveForUs = () => {
                   { title: "Easy Onboarding", img: "/designScreens/assets/sharp-driver/car_teal.png", text: "Our streamlined onboarding process get's you behind the wheel quickly. We provide all the necessary training and support to ensure you are ready to start driving in no time." },
                   { title: "Support and Maintenance", img: "/designScreens/assets/sharp-driver/car_white.png", text: "Kabukabu handles vehicle maintenance, insurance and support. Drive with confidence knowing that everything is taken care of, so you can focus on providing great rides and earning. " },
                 ].map((item) => (
-                  <div key={item.title} className="flex items-center justify-between p-4 rounded-xl border bg-card">
-                    <div className="mb-10">
+                  <div key={item.title} className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl border bg-card">
+                    <div className="sm:mb-0">
                       <h3 className="font-semibold text-foreground">{item.title}</h3>
                       <p className="text-sm text-muted-foreground">{item.text}</p>
                     </div>
-                    <img src={item.img} alt={item.title} className="w-20 h-auto mt-10" loading="lazy" />
+                    <img src={item.img} alt={item.title} className="w-16 sm:w-20 h-auto sm:mt-0" loading="lazy" />
                   </div>
                 ))}
               </div>
@@ -97,12 +97,12 @@ const DriveForUs = () => {
           </section>
 
           {/* Steps - dark band */}
-          <section className="py-20 bg-header">
+          <section className="py-12 sm:py-16 lg:py-20 bg-header">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                 How to <span className="text-primary">Get Started</span> with Kabuakabu?
               </h2>
-              <p className="text-white/70 mb-10 max-w-2xl">
+              <p className="text-white/70 mb-6 sm:mb-10 max-w-2xl">
                 Our driver app makes it easy to receive and manage ride
                 requests, ensuring that you spend less time waiting for passengers
                 and more time earning. Efficient trip distribution means more rides
@@ -110,12 +110,12 @@ const DriveForUs = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {steps.map((s) => (
-                  <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6">
+                  <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
                     <div className="text-primary text-sm font-medium mb-3">{s.step}</div>
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                      <s.icon className="w-5 h-5 text-primary" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                      <s.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-white mb-1 text-sm">{s.title}</h3>
+                    <h3 className="font-semibold text-white mb-1 text-xs sm:text-sm">{s.title}</h3>
                     <p className="text-xs text-white/70">{s.description}</p>
                     {s.link && (
                       <div className="mt-3">
@@ -131,9 +131,9 @@ const DriveForUs = () => {
           </section>
 
           {/* Community CTA text */}
-          <section className="py-16">
+          <section className="py-12 sm:py-16">
             <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
                 More than an app, a community
               </h2>
               <p className="mt-4">
@@ -143,22 +143,22 @@ const DriveForUs = () => {
           </section>
 
           {/* Community section image */}
-          <section className="py-16 bg-background">
+          <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
               <img src="/designScreens/assets/sharp-driver/sharp_driver_community.png" alt="Community" className="rounded-2xl w-full h-auto object-cover" />
             </div>
           </section>
 
           {/* Split phones download */}
-          <section id="download" className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+          <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-end">
               {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_rider.png"
                     alt="Rider app screenshot"
-                    className="w-[260px] md:w-[300px]"
+                    className="w-[220px] sm:w-[260px] md:w-[300px]"
                     loading="lazy"
                     decoding="async"
                   />
@@ -174,12 +174,12 @@ const DriveForUs = () => {
               </div>
 
               {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_driver.png"
                     alt="Driver app screenshot"
-                    className="w-[260px] md:w-[300px]"
+                    className="w-[220px] sm:w-[260px] md:w-[300px]"
                     loading="lazy"
                     decoding="async"
                   />

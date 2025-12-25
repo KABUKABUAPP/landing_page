@@ -48,7 +48,7 @@ const DriveWithUs = () => {
         <main>
           {/* Hero */}
           <section
-            className="relative min-h-screen flex items-center bg-header"
+            className="relative min-h-[70vh] sm:min-h-screen flex items-center bg-header"
             style={{
               backgroundImage: "url(/designScreens/assets/drive-with-us/hero_driver.png)",
               backgroundSize: "cover",
@@ -56,10 +56,10 @@ const DriveWithUs = () => {
             }}
           >
             <div className="absolute inset-0 bg-black/40" />
-            <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-24 pb-16">
+            <div className="container mx-auto px-4 lg:px-8 relative z-10 pt-16 sm:pt-24 pb-12 sm:pb-16">
               <div className="max-w-xl">
                 <p className="text-white/80 text-sm mb-2">Drive with Kabukabu</p>
-                <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white leading-tight">
                   Earn More, Drive Less Stress
                 </h1>
                 <p className="mt-3 text-white/80">
@@ -78,7 +78,7 @@ const DriveWithUs = () => {
           </section>
 
           {/* Intro */}
-          <section className="py-20 bg-background">
+          <section className="py-12 sm:py-16 lg:py-20 bg-background">
             <div className="container mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
               <div>
                 <p className="leading-relaxed">
@@ -98,13 +98,13 @@ const DriveWithUs = () => {
           </section>
 
           {/* Callouts */}
-          <section className="py-12 bg-background">
+          <section className="py-10 sm:py-12 bg-background">
             <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6">
               <div className="grid gap-6">
-                <div className="rounded-2xl bg-cream flex justify-center items-center h-[70vh]">
+                <div className="rounded-2xl bg-cream flex justify-center items-center h-[40vh] sm:h-[50vh] lg:h-[70vh]">
                   <h3 className="text-xl font-bold text-foreground">Make money when you want</h3>
                 </div>
-                <div className="rounded-2xl border bg-card p-6">
+                <div className="rounded-2xl border bg-card p-5 sm:p-6">
                   <h4 className="font-semibold text-foreground">Streamlined Trip Requests</h4>
                   <p className="text-sm mt-1">
                     Our driver app makes it very easy to receive and manage ride requests, ensuring that you spend less time waiting for passengers and more time earning. Efficient trip distribution means more rides and better utilization on the road.
@@ -112,19 +112,19 @@ const DriveWithUs = () => {
                 </div>
               </div>
               <div className="grid gap-6">
-                <div className="rounded-2xl border bg-card p-6">
+                <div className="rounded-2xl border bg-card p-5 sm:p-6">
                   <h4 className="font-semibold text-foreground">Higher Earnings with Every Ride</h4>
                   <p className="text-sm mt-1">
                     At Kabukabu, we believe drivers should keep more of what they earn. That's why we offer one of the most driver-friendly platforms, allowing you to maximize your earnings without having to work extra hours.
                   </p>
                 </div>
-                <div className="rounded-2xl border bg-card p-6">
+                <div className="rounded-2xl border bg-card p-5 sm:p-6">
                   <h4 className="font-semibold text-foreground">Flexible Driving Hours</h4>
                   <p className="text-sm mt-1">
                     You're in control! Whether your prefer to drive mornings, nights or weekends, Kabukabu let's you choose when you want to drive. You have the freedom to set your schedule around your life, not the other way around.
                   </p>
                 </div>
-                <div className="rounded-2xl border bg-card p-6">
+                <div className="rounded-2xl border bg-card p-5 sm:p-6">
                   <h4 className="font-semibold text-foreground">Driver Incentives & Bonuses</h4>
                   <p className="text-sm mt-1">
                     We appreciate the hard work of our drivers, which is why we offer regular bonuses and incentives. From special milestone rewards to referral bonuses, Kabukabu helps to increase your earnings with ease.
@@ -135,12 +135,12 @@ const DriveWithUs = () => {
           </section>
 
           {/* Steps - dark band */}
-          <section className="py-20 bg-header">
+          <section className="py-12 sm:py-16 lg:py-20 bg-header">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                 How to <span className="text-primary">Get Started</span> with Kabuakabu?
               </h2>
-              <p className="text-white/70 mb-10 max-w-2xl">
+              <p className="text-white/70 mb-6 sm:mb-10 max-w-2xl">
                 Our driver app makes it easy to receive and manage ride
                 requests, ensuring that you spend less time waiting for passengers
                 and more time earning. Efficient trip distribution means more rides
@@ -148,12 +148,12 @@ const DriveWithUs = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {steps.map((s) => (
-                  <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-6">
+                  <div key={s.title} className="bg-white/5 border border-white/10 rounded-xl p-5 sm:p-6">
                     <div className="text-primary text-sm font-medium mb-3">{s.step}</div>
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
-                      <s.icon className="w-5 h-5 text-primary" />
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                      <s.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-white mb-1 text-sm">{s.title}</h3>
+                    <h3 className="font-semibold text-white mb-1 text-xs sm:text-sm">{s.title}</h3>
                     <p className="text-xs text-white/70">{s.description}</p>
                     {s.link && (
                       <div className="mt-3">
@@ -169,15 +169,15 @@ const DriveWithUs = () => {
           </section>
 
           {/* No car? Sharp Driver block */}
-          <section className="py-16">
+          <section className="py-12 sm:py-16">
             <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
                 No Car? No Problem!
               </h2>
               <p className="mt-4">
                 Are you eager to drive but don't own a vehicle? Kabukabu's sharp driver program is designed just for you! We provide the cars, you provide the driving. Join our team of Sharp Drivers and start earning wih ease.
               </p>
-              <Button className="rounded-sm bg-[#ffffff] text-[#000000] border border-[#000000] hover:bg-[#f0f0f0] mt-6" asChild>
+              <Button className="rounded-sm bg-[#ffffff] text-[#000000] border border-[#000000] hover:bg-[#f0f0f0] mt-6 text-sm sm:text-base" asChild>
                 <a href="#" className="flex items-center gap-2">
                   Learn More
                 </a>
@@ -199,8 +199,8 @@ const DriveWithUs = () => {
           </section>
 
           {/* Alternating highlights */}
-          <section className="py-16 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+          <section className="py-12 sm:py-16 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-center">
               <div>
                 <img
                   src="/designScreens/assets/drive-with-us/driver_businesswoman_car.png"
@@ -210,11 +210,11 @@ const DriveWithUs = () => {
               </div>
               <div>
                 <>
-                  <p className="text-lg my-5 font-bold">Safety Comes First</p>
+                  <p className="text-base sm:text-lg my-5 font-bold">Safety Comes First</p>
 
-                  <p className="text-md my-5">At Kabukabu, we priortize your safety as much as we do our riders. Our app includes real-time trip tracking, emergency assistance features and a robust driver verification process to ensure that every ride is as safe as it is smooth. Whether you are driving in the city or the suburbs, you can count on Kabukabu to support you every step of the way.</p>
+                  <p className="text-sm sm:text-base my-5">At Kabukabu, we priortize your safety as much as we do our riders. Our app includes real-time trip tracking, emergency assistance features and a robust driver verification process to ensure that every ride is as safe as it is smooth. Whether you are driving in the city or the suburbs, you can count on Kabukabu to support you every step of the way.</p>
 
-                  <p className="text-lg my-5 font-bold">Safety Features Include</p>
+                  <p className="text-base sm:text-lg my-5 font-bold">Safety Features Include</p>
 
                   <ul className="space-y-4">
                     <li>
@@ -236,15 +236,15 @@ const DriveWithUs = () => {
           </section>
 
           {/* Split phones download */}
-          <section id="download" className="py-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-10 items-end">
+          <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
+            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-end">
               {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_rider.png"
                     alt="Rider app screenshot"
-                    className="w-[260px] md:w-[300px]"
+                    className="w-[220px] sm:w-[260px] md:w-[300px]"
                     loading="lazy"
                     decoding="async"
                   />
@@ -260,12 +260,12 @@ const DriveWithUs = () => {
               </div>
 
               {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
+              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
                 <div className="flex justify-center">
                   <img
                     src="/designScreens/assets/ride-with-us/phone_card_driver.png"
                     alt="Driver app screenshot"
-                    className="w-[260px] md:w-[300px]"
+                    className="w-[220px] sm:w-[260px] md:w-[300px]"
                     loading="lazy"
                     decoding="async"
                   />
