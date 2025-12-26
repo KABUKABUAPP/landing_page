@@ -168,8 +168,8 @@ const Header = () => {
 
         {/* Menu Modal */}
         <Dialog open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-          <DialogContent className="w-[95vw] h-[90vh] max-w-5xl p-0 overflow-hidden bg-white sm:rounded-3xl shadow-xl">
-            <div className="flex flex-col h-full">
+          <DialogContent className="w-screen h-[100dvh] sm:w-[95vw] sm:h-[90vh] max-w-5xl p-0 overflow-hidden bg-white rounded-none sm:rounded-3xl shadow-xl">
+            <div className="flex flex-col h-full min-h-0">
               {/* Top bar */}
               <div className="flex items-center justify-between px-4 sm:px-5 py-4 md:px-8 bg-muted/40 border-b">
                 <div className="flex items-center gap-6">
@@ -200,7 +200,7 @@ const Header = () => {
               </div>
 
               {/* Nav Tabs */}
-              <nav className="flex items-center gap-2 my-4 md:my-5 mx-4 md:mx-10 overflow-x-auto md:overflow-visible">
+              <nav className="flex flex-wrap items-center gap-2 my-4 md:my-5 mx-4 md:mx-10 md:flex-nowrap md:overflow-x-auto">
                 {menuTabs.map((tab) => {
                   const isActive = activeMenuTab.key === tab.key;
                   return (
@@ -221,8 +221,8 @@ const Header = () => {
               </nav>
 
               {/* Content */}
-              <div className="grid md:grid-cols-[1.1fr_1fr_0.9fr] gap-4 sm:gap-6 px-4 sm:px-5 py-5 sm:py-6 md:px-8 md:py-10 bg-muted/20 flex-1 overflow-y-auto">
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex items-center">
+              <div className="grid md:grid-cols-[1.1fr_1fr_0.9fr] gap-4 sm:gap-6 px-4 sm:px-5 py-5 sm:py-6 md:px-8 md:py-10 bg-muted/20 flex-1 min-h-0 overflow-y-auto">
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex items-center min-w-0">
                   <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">
                     {activeMenuTab.leftTitle.split("\n").map((line, index) => (
                       <span key={line}>
@@ -232,7 +232,7 @@ const Header = () => {
                     ))}
                   </p>
                 </div>
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm min-w-0">
                   <h3 className="text-lg font-semibold text-foreground mb-4">
                     {activeMenuTab.middleTitle}
                   </h3>
@@ -244,12 +244,12 @@ const Header = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col items-center justify-center gap-4">
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col items-center justify-center gap-4 min-w-0">
                   <p className="text-center text-sm font-semibold text-foreground">
                     {activeMenuTab.rightTitle}
                   </p>
-                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Google Play" className="h-12 w-auto" />
-                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="App Store" className="h-12 w-auto" />
+                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Google Play" className="h-12 w-auto max-w-full" />
+                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="App Store" className="h-12 w-auto max-w-full" />
                 </div>
               </div>
             </div>
