@@ -1,11 +1,60 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CommunitySection from "@/components/CommunitySection";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+type CommunityTab = "riders" | "drivers" | "fleet";
+
+const FADE_DURATION_MS = 350;
 
 const Index = () => {
+  const [communityTab, setCommunityTab] = useState<CommunityTab>("riders");
+  const [displayedCommunityTab, setDisplayedCommunityTab] = useState<CommunityTab>("riders");
+  const [isCommunityImageFading, setIsCommunityImageFading] = useState(false);
+  const fadeTimeoutRef = useRef<number | null>(null);
+  const communityImages: Record<CommunityTab, { src: string; alt: string }> = {
+    riders: {
+      src: "/designScreens/assets/ride-with-us/community_businesswoman_car.png",
+      alt: "Rider in car using phone",
+    },
+    drivers: {
+      src: "/designScreens/assets/ride-with-us/drivers.png",
+      alt: "Driver on the road",
+    },
+    fleet: {
+      src: "/designScreens/assets/ride-with-us/fleet_owners.png",
+      alt: "Fleet owner vehicles",
+    },
+  };
+  const communityImage = communityImages[displayedCommunityTab];
+
+  const handleCommunityTabChange = (nextTab: CommunityTab) => {
+    if (nextTab === communityTab) {
+      return;
+    }
+    setCommunityTab(nextTab);
+    setIsCommunityImageFading(true);
+    if (fadeTimeoutRef.current !== null) {
+      window.clearTimeout(fadeTimeoutRef.current);
+    }
+    fadeTimeoutRef.current = window.setTimeout(() => {
+      setDisplayedCommunityTab(nextTab);
+      setIsCommunityImageFading(false);
+      fadeTimeoutRef.current = null;
+    }, FADE_DURATION_MS);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (fadeTimeoutRef.current !== null) {
+        window.clearTimeout(fadeTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -50,7 +99,13 @@ const Index = () => {
           </section>
 
           {/* Why You'll Love Us */}
-          <section className="py-12 sm:py-16 lg:py-20 bg-background">
+          <section
+            className="py-12 sm:py-16 lg:py-20 bg-background bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url(/designScreens/assets/ride-with-us/why-us-bg.png)",
+              backgroundSize: "calc(100% - 20vw) calc(100% - 20vh)",
+            }}
+          >
             <div className="container mx-auto px-4 lg:px-8">
               <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-12">
                 Here's Why You'll Love Us
@@ -111,9 +166,11 @@ const Index = () => {
             <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 pt-4 sm:pt-5">
               <div>
                 <img
-                  src="/designScreens/assets/ride-with-us/community_businesswoman_car.png"
-                  alt="Rider in car using phone"
-                  className="rounded-2xl w-full h-auto object-cover"
+                  src={communityImage.src}
+                  alt={communityImage.alt}
+                  className={`rounded-2xl w-full h-auto object-cover transition-opacity duration-[350ms] ease-in-out ${
+                    isCommunityImageFading ? "opacity-0" : "opacity-100"
+                  }`}
                   loading="lazy"
                   decoding="async"
                 />
@@ -123,7 +180,7 @@ const Index = () => {
                   We build a better community for all users
                 </h2>
                 {/* Tabs */}
-                <CommunityTabsBlock />
+                <CommunityTabsBlock active={communityTab} onChange={handleCommunityTabChange} />
               </div>
             </div>
           </section>
@@ -131,7 +188,7 @@ const Index = () => {
           {/* Things we do */}
           <section className="py-12 sm:py-16 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-8">Things we do</h2>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">Things we do</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   { title: "Kabu Ride", img: "/designScreens/assets/ride-with-us/car_yellow.png", text: "Get a private, comfortable ride, anytime, anywhere in the city" },
@@ -153,30 +210,7 @@ const Index = () => {
             </div>
           </section>
 
-          {/* Community CTA text */}
-          <section className="py-12 sm:py-16">
-            <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                More than an app, a community
-              </h2>
-              <p className="mt-4">
-                At Kabukabu, we believe in building more than just a ride-hailing platform, we're creating a vibrant community where drivers and riders come together with shared goals of convenience, safety and mutual respect. Our platform offers a sense of belonging by offering tailored rewards, open communication and support for everyone. Whether you are a rider enjoying perks like student discounts or a driver benefiting from reduced commisions, Kabukabu ensures everyone is valued. Together we are shaving a community that thrives on connection, trust and the joy of every journey.
-              </p>
-            </div>
-          </section>
-
-          {/* Wide rider image */}
-          <section className="py-8 bg-background">
-            <div className="container mx-auto px-4 lg:px-8">
-              <img
-                src="/designScreens/assets/ride-with-us/community_businesswoman_car.png"
-                alt="Rider using Kabukabu in a car"
-                className="w-full h-auto rounded-2xl object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </section>
+          <CommunitySection />
 
           {/* Split phones download */}
           <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
@@ -234,12 +268,16 @@ const Index = () => {
 export default Index;
 
 // Local component for community tabs block
-const CommunityTabsBlock = () => {
-  const [active, setActive] = useState<'riders' | 'drivers' | 'fleet'>('riders');
-
-  const TabButton = ({ id, label }: { id: 'riders' | 'drivers' | 'fleet'; label: string }) => (
+const CommunityTabsBlock = ({
+  active,
+  onChange,
+}: {
+  active: CommunityTab;
+  onChange: (tab: CommunityTab) => void;
+}) => {
+  const TabButton = ({ id, label }: { id: CommunityTab; label: string }) => (
     <button
-      onClick={() => setActive(id)}
+      onClick={() => onChange(id)}
       className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap${
         active === id
           ? ' bg-primary text-primary-foreground rounded-full'
