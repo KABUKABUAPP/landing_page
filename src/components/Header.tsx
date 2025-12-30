@@ -23,9 +23,11 @@ const Header = () => {
     {
       key: "ride",
       label: "Ride with us",
-      leftTitle: "Great rides,\n better comfort",
-      middleTitle: "Rider Features",
-      middleItems: ["Kabu Rider", "Rewards Program"],
+      leftTitle: "Get the best ride prices in the market",
+      middleTitle: "Ride Features",
+      middleItems: ["Instant Ride", "Scheduled Ride", "Ride Sharing"],
+      middleItemsIsUrl: false,
+      middleItemsLinks: [],
       rightTitle: "Get Kabukabu Rider App",
     },
     {
@@ -34,39 +36,47 @@ const Header = () => {
       leftTitle: "0% commission,\n unlimited incentives",
       middleTitle: "Driver Features",
       middleItems: ["Kabu Driver", "Sharp Program"],
+      middleItemsIsUrl: true,
+      middleItemsLinks: ['/drive-with-us', '/drive-for-us'],
       rightTitle: "Get Kabukabu Driver App",
     },
     {
       key: "company",
       label: "Company",
-      leftTitle: "Building\n mobility for all",
-      middleTitle: "Company Highlights",
-      middleItems: ["Mission", "Vision"],
+      leftTitle: "Driven by passion,\n innovation &\n solution",
+      middleTitle: "The Kabukabu Team",
+      middleItems: ["Read about us", "Meet our CEO"],
+      middleItemsIsUrl: true,
+      middleItemsLinks: ['/about', '/about'],
       rightTitle: "Learn More",
     },
     {
       key: "cities",
       label: "Cities",
-      leftTitle: "Serving\n more communities",
-      middleTitle: "Available Cities",
-      middleItems: ["Coming Soon", "Coming Soon"],
-      rightTitle: "Explore Cities",
+      leftTitle: "A city a time\n a community at large",
+      middleTitle: "The Kabu Cities",
+      middleItems: ["Lagos", "Abuja", "Ibadan", "Abeokuta", "Akwa-Ibom"],
+      middleItemsIsUrl: false,
+      middleItemsLinks: [],
+      rightTitle: "",
     },
     {
       key: "safety",
       label: "Safety",
-      leftTitle: "Safety-first\n rides and drives",
-      middleTitle: "Safety Features",
-      middleItems: ["In-app tools", "Trusted drivers"],
-      rightTitle: "Safety Overview",
+      leftTitle: "Safety measures,\n always cautious",
+      middleTitle: "Safety",
+      middleItems: ["Driver Safety", "Rider Safety"],
+      rightTitle: "",
     },
     {
       key: "support",
       label: "Support",
-      leftTitle: "Help when\n you need it",
+      leftTitle: "24/7 available,\n for you",
       middleTitle: "Support Options",
-      middleItems: ["Help Center", "Contact Us"],
-      rightTitle: "Visit Support",
+      middleItems: ["Chat with us", "Send us a mail"],
+      middleItemsIsUrl: true,
+      middleItemsLinks: ['/support', '/support'],
+      rightTitle: "",
     },
   ];
   const [activeMenuTab, setActiveMenuTab] = useState(menuTabs[0]);
@@ -114,7 +124,7 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-md font-medium transition-colors ${
                   isOverlay 
                     ? 'text-white/90 hover:text-primary' 
                     : 'text-foreground hover:text-primary'
@@ -131,7 +141,7 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-md font-medium transition-colors ${
                   isOverlay 
                     ? 'text-white/90 hover:text-primary' 
                     : 'text-foreground hover:text-primary'
@@ -141,7 +151,7 @@ const Header = () => {
               </Link>
             ))}
             <Button 
-              className={`rounded-full px-6 ${
+              className={`rounded-full px-6 text-md ${
                 isOverlay 
                   ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
                   : 'bg-primary text-primary-foreground hover:bg-primary/90'
@@ -237,9 +247,9 @@ const Header = () => {
                     {activeMenuTab.middleTitle}
                   </h3>
                   <ul className="space-y-3 text-sm text-muted-foreground">
-                    {activeMenuTab.middleItems.map((item) => (
+                    {activeMenuTab.middleItems.map((item, idx) => (
                       <li key={item} className="text-foreground font-medium">
-                        {item}
+                        {activeMenuTab.middleItemsIsUrl ? <a href={activeMenuTab.middleItemsLinks[idx]}>{item}</a> : item}
                       </li>
                     ))}
                   </ul>

@@ -59,30 +59,11 @@ const Support = () => {
             </div>
           </section>
 
-          <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
-            <div className="mx-auto w-full max-w-[1428px] px-0 text-center">
-              <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
-                More than an app, a community
-              </h3>
-              <p className="mx-auto mt-4 max-w-[1013px] text-[14px] leading-relaxed text-[#4a4a4a]">
-                At Kabukabu, we believe in building more than just a ride-hailing
-                platform &mdash; we&rsquo;re creating a vibrant community where
-                riders and drivers come together with shared goals of convenience,
-                safety, and mutual respect. Our platform fosters a sense of
-                belonging by offering tailored rewards, open communication, and
-                support for everyone. Whether you&rsquo;re a rider enjoying perks
-                like student discounts or a driver benefiting from reduced
-                commissions, Kabukabu ensures everyone is valued. Together,
-                we&rsquo;re shaping a community that thrives on connection, trust,
-                and the joy of every journey.
-              </p>
-              <img
-                src="/designScreens/assets/about/about_person_car.png"
-                alt="Kabukabu community"
-                className="mt-8 h-[280px] w-full rounded-[24px] object-cover sm:h-[420px] lg:h-[613px]"
-              />
-            </div>
-          </section>
+          <CommunitySection
+            headingTag="h3"
+            headingClassName="text-[22px] font-semibold text-[#1a1a1a]"
+            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-[14px] leading-relaxed text-[#4a4a4a]"
+          />
 
           {/* Split phones download */}
           <section id="download" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20 bg-background">

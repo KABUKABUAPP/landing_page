@@ -1,5 +1,6 @@
 ﻿import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CommunitySection from "@/components/CommunitySection";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight, Check, Download, UserPlus, FileCheck, Play } from "lucide-react";
@@ -130,24 +131,7 @@ const DriveForUs = () => {
             </div>
           </section>
 
-          {/* Community CTA text */}
-          <section className="py-12 sm:py-16">
-            <div className="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">
-                More than an app, a community
-              </h2>
-              <p className="mt-4">
-                At Kabukabu, we believe in building more than just a ride-hailing platform, we're creating a vibrant community where drivers and riders come together with shared goals of convenience, safety and mutual respect. Our platform offers a sense of belonging by offering tailored rewards, open communication and support for everyone. Whether you are a rider enjoying perks like student discounts or a driver benefiting from reduced commisions, Kabukabu ensures everyone is valued. Together we are shaving a community that thrives on connection, trust and the joy of every journey.
-              </p>
-            </div>
-          </section>
-
-          {/* Community section image */}
-          <section className="py-12 sm:py-16 bg-background">
-            <div className="container mx-auto px-4 lg:px-8">
-              <img src="/designScreens/assets/sharp-driver/sharp_driver_community.png" alt="Community" className="rounded-2xl w-full h-auto object-cover" />
-            </div>
-          </section>
+          <CommunitySection />
 
           {/* Split phones download */}
           <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
