@@ -7,7 +7,7 @@ const Footer = () => {
       {/* Top section */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex flex-wrap gap-6 text-sm">
+          <div className="flex flex-wrap gap-6 text-body">
             <Link to="/about" className="text-foreground hover:text-primary transition-colors">
               About Kabukabu
             </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
       {/* Bottom section */}
       <div className="container mx-auto px-4 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-body text-muted-foreground">
             © {new Date().getFullYear()} Kabukabu. All rights reserved.
           </p>
           
@@ -59,7 +59,7 @@ const Footer = () => {
             />
           </Link>
 
-          <div className="flex gap-6 text-sm">
+          <div className="flex gap-6 text-body">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
               Terms of Service
             </a>

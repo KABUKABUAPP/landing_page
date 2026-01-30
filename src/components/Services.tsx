@@ -27,10 +27,10 @@ const Services = () => {
     <section id="services" className="py-12 sm:py-16 lg:py-28 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-sectionTitle font-bold text-foreground mb-4">
             Our Services
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-body max-w-2xl mx-auto">
             Choose from our range of services designed to meet your transportation needs.
           </p>
         </div>
@@ -45,24 +45,24 @@ const Services = () => {
                 <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary-foreground" />
               </div>
               
-              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3">
+              <h3 className="text-cardTitle font-semibold text-foreground mb-3">
                 {service.title}
               </h3>
               
-              <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground text-body mb-6">
                 {service.description}
               </p>
               
               <ul className="space-y-3 mb-8">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-foreground">
+                  <li key={feature} className="flex items-center gap-3 text-body text-foreground">
                     <div className="w-2 h-2 bg-primary rounded-full" />
                     {feature}
                   </li>
                 ))}
               </ul>
               
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-body">
                 Learn More
               </Button>
             </div>

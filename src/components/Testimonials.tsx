@@ -29,10 +29,10 @@ const Testimonials = () => {
     <section id="testimonials" className="py-12 sm:py-16 lg:py-28 bg-[hsl(var(--cream))]">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-sectionTitle font-bold text-foreground mb-4">
             What People Say
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-body max-w-2xl mx-auto">
             Hear from our satisfied riders and drivers about their Kabukabu experience.
           </p>
         </div>
@@ -52,8 +52,8 @@ const Testimonials = () => {
                   className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
                 />
                 <div>
-                  <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                  <h4 className="text-cardTitle font-semibold text-foreground">{testimonial.name}</h4>
+                  <p className="text-body text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
               
@@ -63,7 +63,7 @@ const Testimonials = () => {
                 ))}
               </div>
               
-              <p className="text-sm sm:text-base text-foreground leading-relaxed">
+              <p className="text-body text-foreground leading-relaxed">
                 "{testimonial.text}"
               </p>
             </div>

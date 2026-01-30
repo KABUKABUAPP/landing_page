@@ -6,16 +6,16 @@ const Hero = () => {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="pt-16 sm:pt-20 lg:pt-0">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 animate-fade-in">
+            <h1 className="text-hero font-bold text-foreground leading-tight mb-4 animate-fade-in">
               Your Premium<br />Ride-Hailing<br />Experience!
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-bodyLg text-muted-foreground mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Discover the Future of Transportation with Kabukabu!
             </p>
             <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base rounded-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-5 sm:py-6 text-body rounded-lg"
               >
                 Get The App
               </Button>
@@ -38,21 +38,21 @@ const Hero = () => {
                   <div className="bg-cream rounded-2xl aspect-[9/19] flex flex-col items-center justify-center p-3">
                     <div className="w-full space-y-2">
                       <div className="bg-white rounded-lg p-2 shadow-sm">
-                        <div className="text-[10px] font-medium text-foreground">Current location</div>
-                        <div className="text-[8px] text-muted-foreground flex items-center gap-1">
+                        <div className="text-micro font-medium text-foreground">Current location</div>
+                        <div className="text-nano text-muted-foreground flex items-center gap-1">
                           <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                           Lekki Phase 1
                         </div>
                       </div>
                       <div className="bg-white rounded-lg p-2 shadow-sm">
-                        <div className="text-[10px] font-medium text-foreground">Where to?</div>
-                        <div className="text-[8px] text-muted-foreground flex items-center gap-1">
+                        <div className="text-micro font-medium text-foreground">Where to?</div>
+                        <div className="text-nano text-muted-foreground flex items-center gap-1">
                           <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
                           Victoria Island
                         </div>
                       </div>
                       <div className="bg-primary rounded-lg p-2 text-center">
-                        <span className="text-[10px] font-semibold text-primary-foreground">Book Ride</span>
+                        <span className="text-micro font-semibold text-primary-foreground">Book Ride</span>
                       </div>
                     </div>
                   </div>

@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CommunitySection from "@/components/CommunitySection";
+import SplitDownloadSection from "@/components/SplitDownloadSection";
+import SupportSearch from "@/components/SupportSearch";
 import { Helmet } from "react-helmet-async";
-import { Search, User, Car, Users, UserCheck } from "lucide-react";
+import { User, Car, Users, UserCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const categories = [
@@ -25,21 +27,12 @@ const Support = () => {
           {/* Hero Section */}
           <section className="py-12 sm:py-16 bg-cream">
             <div className="container mx-auto px-4 lg:px-8 text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8">
+              <h1 className="text-pageTitle font-bold text-foreground mb-8">
                 How can we help?
               </h1>
               
               {/* Search bar */}
-              <div className="max-w-xl mx-auto mb-12">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                  <input 
-                    type="text"
-                    placeholder="Type your question"
-                    className="w-full pl-12 pr-4 py-3 sm:py-4 border border-border rounded-lg text-foreground bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-              </div>
+              <SupportSearch className="mb-12" />
 
               {/* Categories */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
@@ -52,7 +45,7 @@ const Support = () => {
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cream rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
                       <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-foreground group-hover:text-primary transition-colors" />
                     </div>
-                    <span className="font-medium text-foreground">{category.label}</span>
+                    <span className="text-body font-medium text-foreground">{category.label}</span>
                   </Link>
                 ))}
               </div>
@@ -61,56 +54,12 @@ const Support = () => {
 
           <CommunitySection
             headingTag="h3"
-            headingClassName="text-[22px] font-semibold text-[#1a1a1a]"
-            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-[14px] leading-relaxed text-[#4a4a4a]"
+            headingClassName="text-sectionTitle font-semibold text-[#1a1a1a]"
+            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-body leading-relaxed text-[#4a4a4a]"
           />
 
           {/* Split phones download */}
-          <section id="download" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20 bg-background">
-            <div className="container mx-auto px-4 lg:px-8 grid md:grid-cols-2 gap-6 sm:gap-10 items-end">
-              {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
-                <div className="flex justify-center">
-                  <img
-                    src="/designScreens/assets/ride-with-us/phone_card_rider.png"
-                    alt="Rider app screenshot"
-                    className="w-[260px] md:w-[300px]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Ride With Us</h3>
-                  <p className="text-sm mt-1">Get Kabukabu rider app and enjoy the riding experience.</p>
-                </div>
-                <div className="mt-6 flex justify-center gap-3">
-                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
-                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Get it on Google Play" className="h-10 w-auto" />
-                </div>
-              </div>
-
-              {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-5 sm:p-6 border">
-                <div className="flex justify-center">
-                  <img
-                    src="/designScreens/assets/ride-with-us/phone_card_driver.png"
-                    alt="Driver app screenshot"
-                    className="w-[260px] md:w-[300px]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Drive With Us</h3>
-                  <p className="text-sm mt-1">Drive and earn seamlessly using the Kabukabu driver app.</p>
-                </div>
-                <div className="mt-6 flex justify-center gap-3">
-                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
-                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Get it on Google Play" className="h-10 w-auto" />
-                </div>
-              </div>
-            </div>
-          </section>
+          <SplitDownloadSection sectionClassName="px-4 sm:px-6 lg:px-20" />
         </main>
         <Footer />
       </div>

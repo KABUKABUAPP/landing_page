@@ -13,6 +13,20 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        hero: ["clamp(2.75rem, 4vw + 1rem, 5rem)", { lineHeight: "1.05" }],
+        pageTitle: ["clamp(1.75rem, 1.4vw + 1rem, 2.25rem)", { lineHeight: "1.2" }],
+        sectionTitle: ["1.375rem", { lineHeight: "1.3" }],
+        subTitle: ["1.125rem", { lineHeight: "1.35" }],
+        cardTitle: ["1rem", { lineHeight: "1.4" }],
+        heroSub: ["clamp(1.5rem, 1.6vw + 0.9rem, 2rem)", { lineHeight: "1.5" }],
+        bodyLg: ["1rem", { lineHeight: "1.6" }],
+        body: ["0.875rem", { lineHeight: "1.6" }],
+        caption: ["0.8125rem", { lineHeight: "1.5" }],
+        overline: ["0.75rem", { lineHeight: "1.4" }],
+        micro: ["0.625rem", { lineHeight: "1.4" }],
+        nano: ["0.5rem", { lineHeight: "1.4" }],
+      },
       fontFamily: {
         sans: ['Sofia Sans', 'sans-serif'],
       },
