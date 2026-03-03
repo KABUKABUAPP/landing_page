@@ -110,7 +110,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center" aria-label="Kabukabu Home">
             <img
-              src={!scrolled ? "/designScreens/kabukabuLogo.png" : "/designScreens/kabukabuLogoBlack.png"}
+              src={isOverlay ? "/designScreens/kabukabuLogo.png" : "/designScreens/kabukabuLogoBlack.png"}
               alt="Kabukabu"
               className="h-8 w-auto md:h-10"
               loading="eager"
