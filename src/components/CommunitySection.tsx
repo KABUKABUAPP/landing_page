@@ -6,8 +6,8 @@ type CommunitySectionProps = {
 
 const CommunitySection = ({
   headingTag: HeadingTag = "h2",
-  headingClassName = "text-xl sm:text-2xl md:text-3xl font-bold text-foreground",
-  paragraphClassName = "mt-4 mx-auto max-w-3xl",
+  headingClassName = "text-sectionTitle font-bold text-foreground",
+  paragraphClassName = "mt-4 mx-auto max-w-3xl text-body",
 }: CommunitySectionProps) => (
   <>
     <section className="py-12 sm:py-16">

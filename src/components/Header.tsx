@@ -110,7 +110,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center" aria-label="Kabukabu Home">
             <img
-              src={!scrolled ? "/designScreens/kabukabuLogo.png" : "/designScreens/kabukabuLogoBlack.png"}
+              src={isOverlay ? "/designScreens/kabukabuLogo.png" : "/designScreens/kabukabuLogoBlack.png"}
               alt="Kabukabu"
               className="h-8 w-auto md:h-10"
               loading="eager"
@@ -124,7 +124,7 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`text-md font-medium transition-colors ${
+                className={`text-body font-medium transition-colors ${
                   isOverlay 
                     ? 'text-white/90 hover:text-primary' 
                     : 'text-foreground hover:text-primary'
@@ -141,7 +141,7 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`text-md font-medium transition-colors ${
+                className={`text-body font-medium transition-colors ${
                   isOverlay 
                     ? 'text-white/90 hover:text-primary' 
                     : 'text-foreground hover:text-primary'
@@ -151,7 +151,7 @@ const Header = () => {
               </Link>
             ))}
             <Button 
-              className={`rounded-full px-6 text-md ${
+              className={`rounded-full px-6 text-body ${
                 isOverlay 
                   ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
                   : 'bg-primary text-primary-foreground hover:bg-primary/90'
@@ -188,7 +188,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="hidden md:flex items-center gap-4 text-sm font-medium">
+                  <div className="hidden md:flex items-center gap-4 text-body font-medium">
                     <Link to="/about" onClick={() => setIsMenuOpen(false)} className="text-foreground hover:text-primary transition-colors">
                       About
                     </Link>
@@ -218,7 +218,7 @@ const Header = () => {
                       key={tab.key}
                       type="button"
                       onClick={() => setActiveMenuTab(tab)}
-                      className={`text-xs sm:text-sm font-semibold px-3 py-2 rounded-full whitespace-nowrap transition-colors ${
+                      className={`text-caption font-semibold px-3 py-2 rounded-full whitespace-nowrap transition-colors ${
                         isActive
                           ? "bg-primary text-primary-foreground"
                           : "text-foreground hover:bg-muted"
@@ -233,7 +233,7 @@ const Header = () => {
               {/* Content */}
               <div className="grid md:grid-cols-[1.1fr_1fr_0.9fr] gap-4 sm:gap-6 px-4 sm:px-5 py-5 sm:py-6 md:px-8 md:py-10 bg-muted/20 flex-1 min-h-0 overflow-y-auto">
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex items-center min-w-0">
-                  <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                  <p className="text-pageTitle font-bold text-foreground leading-tight">
                     {activeMenuTab.leftTitle.split("\n").map((line, index) => (
                       <span key={line}>
                         {line}
@@ -243,10 +243,10 @@ const Header = () => {
                   </p>
                 </div>
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm min-w-0">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">
+                  <h3 className="text-subTitle font-semibold text-foreground mb-4">
                     {activeMenuTab.middleTitle}
                   </h3>
-                  <ul className="space-y-3 text-sm text-muted-foreground">
+                  <ul className="space-y-3 text-body text-muted-foreground">
                     {activeMenuTab.middleItems.map((item, idx) => (
                       <li key={item} className="text-foreground font-medium">
                         {activeMenuTab.middleItemsIsUrl ? <a href={activeMenuTab.middleItemsLinks[idx]}>{item}</a> : item}
@@ -255,7 +255,7 @@ const Header = () => {
                   </ul>
                 </div>
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm flex flex-col items-center justify-center gap-4 min-w-0">
-                  <p className="text-center text-sm font-semibold text-foreground">
+                  <p className="text-center text-body font-semibold text-foreground">
                     {activeMenuTab.rightTitle}
                   </p>
                   <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Google Play" className="h-12 w-auto max-w-full" />

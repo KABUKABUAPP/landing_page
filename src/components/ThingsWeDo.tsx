@@ -43,7 +43,7 @@ const ThingsWeDo = () => {
   return (
     <section className="py-12 sm:py-16 lg:py-28 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-10 sm:mb-16">
+        <h2 className="text-sectionTitle font-bold text-center text-foreground mb-10 sm:mb-16">
           Things we do
         </h2>
 
@@ -58,10 +58,10 @@ const ThingsWeDo = () => {
               <div className={`w-10 h-10 sm:w-12 sm:h-12 ${service.highlighted ? 'bg-primary' : 'bg-cream'} rounded-xl flex items-center justify-center mb-4`}>
                 <service.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${service.highlighted ? 'text-primary-foreground' : 'text-foreground'}`} />
               </div>
-              <h3 className="font-semibold text-base sm:text-lg text-foreground mb-2">
+              <h3 className="text-cardTitle font-semibold text-foreground mb-2">
                 {service.title}
               </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="text-body text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </div>

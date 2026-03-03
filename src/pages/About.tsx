@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import CommunitySection from "@/components/CommunitySection";
+import SplitDownloadSection from "@/components/SplitDownloadSection";
 import {
   ArrowLeft,
   ArrowRight,
@@ -59,7 +60,7 @@ const About = () => {
         />
       </Helmet>
       <div className="min-h-screen">
-        <Header />      
+        <Header />
         <main className="bg-white text-[#1a1a1a]">
           <section
             className="relative h-[65vh] w-full bg-cover bg-center"
@@ -68,8 +69,8 @@ const About = () => {
             <div className="absolute inset-0 bg-black/60" />
             <div className="relative z-10 flex h-full items-center justify-center px-6">
               <div className="text-center">
-                <p className="text-[14px] text-white/80">About Kabukabu</p>
-                <h1 className="mt-2 text-[44px] font-semibold leading-tight text-white md:text-[48px]">
+                <p className="text-body text-white">About Kabukabu</p>
+                <h1 className="mt-2 text-[2.75rem] md:text-[3rem] font-semibold leading-tight text-white">
                   Your Journey, Our Passion
                 </h1>
               </div>
@@ -77,10 +78,10 @@ const About = () => {
           </section>
 
           <section className="mx-auto w-full max-w-[100vw] px-4 sm:px-6 lg:px-20 py-12 sm:py-16 lg:py-20">
-            <h2 className="text-[22px] font-semibold text-[#1a1a1a] text-start w-full">
+            <h2 className="text-sectionTitle font-semibold text-[#1a1a1a] text-start w-full">
               Redefining the Ride&ndash;Hailing Experience
             </h2>
-            <p className="mt-4 w-full lg:w-[60vw] text-[14px] leading-relaxed text-[#333] text-start">
+            <p className="mt-4 w-full lg:w-[60vw] text-body leading-relaxed text-[#333] text-start">
               Welcome to Kabukabu, where we&rsquo;re redefining the ride-hailing
               experience for drivers and passengers alike. Kabukabu was founded
               with a simple vision: to create a seamless, enjoyable, and affordable
@@ -99,10 +100,10 @@ const About = () => {
                 className="h-auto w-full rounded-lg object-cover"
               />
               <div className="pt-6 lg:pt-[25vh]">
-                <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
+                <h3 className="text-sectionTitle font-semibold text-[#1a1a1a]">
                   Our <span className="text-[#f7c332]">Mission</span>
                 </h3>
-                <p className="mt-4 max-w-[640px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                <p className="mt-4 max-w-[640px] text-body leading-relaxed text-[#4a4a4a]">
                   At Kabukabu, our mission is to make every journey a joyful one.
                   We are committed to connecting communities by offering affordable
                   rides, creating sustainable earning opportunities for drivers,
@@ -117,7 +118,7 @@ const About = () => {
 
           {/*<section className="py-20">
             <div className="mx-auto w-full max-w-[100vw] px-20">
-              <h3 className="text-center text-lg font-semibold text-[#1a1a1a]">
+              <h3 className="text-center text-bodyLg font-semibold text-[#1a1a1a]">
                 What Sets Us Apart
               </h3>
               <div className="mt-4 flex items-center justify-center gap-6">
@@ -144,10 +145,10 @@ const About = () => {
                     />
                     <div className="flex h-full items-center px-10 pr-[90px]">
                       <div className="max-w-[520px]">
-                        <h4 className="text-[20px] font-semibold text-[#1a1a1a]">
+                        <h4 className="text-subTitle font-semibold text-[#1a1a1a]">
                           Driver-Centric Approach
                         </h4>
-                        <p className="mt-3 text-[14px] leading-relaxed text-[#4a4a4a]">
+                        <p className="mt-3 text-body leading-relaxed text-[#4a4a4a]">
                           Kabukabu was built with drivers in mind. Our platform
                           ensures drivers are fairly compensated with lower
                           commission rates and additional incentives, allowing them
@@ -171,10 +172,10 @@ const About = () => {
           {/* Our Services */}
           <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
             <div className="mx-auto w-full max-w-[1428px] px-0">
-              <h3 className="text-center text-[22px] font-semibold text-[#1a1a1a]">
+              <h3 className="text-center text-sectionTitle font-semibold text-[#1a1a1a]">
                 Our Services
               </h3>
-              <p className="mt-3 text-center text-[14px] text-[#4a4a4a]">
+              <p className="mt-3 text-center text-body text-[#4a4a4a]">
                 Kabukabu offers a range of services designed to meet the
                 transportation needs of different groups:
               </p>
@@ -187,7 +188,7 @@ const About = () => {
                       key={tab.key}
                       type="button"
                       onClick={() => setActiveServiceTab(tab)}
-                      className={`rounded-full px-[22px] py-[8px] text-[14px] ${
+                      className={`rounded-full px-[22px] py-[8px] text-body ${
                         isActive
                           ? "bg-[#f7c332] font-semibold text-black"
                           : "border border-[#e5e5e5] text-[#9b9b9b]"
@@ -206,10 +207,10 @@ const About = () => {
                   className="h-auto w-full rounded-[24px] object-cover"
                 />
                 <div className="pt-6 lg:pt-[25vh]">
-                  <h4 className="text-[20px] font-semibold text-[#1a1a1a]">
+                  <h4 className="text-subTitle font-semibold text-[#1a1a1a]">
                     {activeServiceTab.title}
                   </h4>
-                  <p className="mt-3 max-w-[520px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                  <p className="mt-3 max-w-[520px] text-body leading-relaxed text-[#4a4a4a]">
                     {activeServiceTab.body}
                   </p>
                 </div>
@@ -227,10 +228,10 @@ const About = () => {
                 backgroundRepeat: "no-repeat",
               }}
             >
-              <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
+              <h3 className="text-sectionTitle font-semibold text-[#1a1a1a]">
                 Our Guiding Principles
               </h3>
-              <p className="mt-3 max-w-[540px] text-[14px] leading-relaxed text-[#4a4a4a]">
+              <p className="mt-3 max-w-[540px] text-body leading-relaxed text-[#4a4a4a]">
                 At the heart of Kabukabu, our guiding principles shape every
                 decision we make and every interaction we have. These core values
                 reflect our commitment to innovation, integrity, community, and
@@ -239,10 +240,10 @@ const About = () => {
               <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Lightbulb className="h-5 w-5 text-[#f7c332]" />
-                  <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
+                  <h4 className="mt-4 text-bodyLg font-semibold text-[#1a1a1a]">
                     Innovation
                   </h4>
-                  <p className="mt-3 text-[13px] leading-relaxed text-[#8a8a8a]">
+                  <p className="mt-3 text-caption leading-relaxed text-[#8a8a8a]">
                     We are constantly improving and evolving to meet the needs of
                     our users, providing the best tools and technologies for both
                     drivers and riders.
@@ -250,20 +251,20 @@ const About = () => {
                 </div>
                 <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Heart className="h-5 w-5 text-[#f7c332]" />
-                  <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
+                  <h4 className="mt-4 text-bodyLg font-semibold text-[#1a1a1a]">
                     Integrity
                   </h4>
-                  <p className="mt-3 text-[13px] leading-relaxed text-[#8a8a8a]">
+                  <p className="mt-3 text-caption leading-relaxed text-[#8a8a8a]">
                     We believe in building trust through transparency and honesty,
                     ensuring a fair and reliable platform for all.
                   </p>
                 </div>
                 <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Users className="h-5 w-5 text-[#f7c332]" />
-                  <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
+                  <h4 className="mt-4 text-bodyLg font-semibold text-[#1a1a1a]">
                     Community
                   </h4>
-                  <p className="mt-3 text-[13px] leading-relaxed text-[#8a8a8a]">
+                  <p className="mt-3 text-caption leading-relaxed text-[#8a8a8a]">
                     Kabukabu isn&rsquo;t just a ride&ndash;hailing app; it&rsquo;s a
                     community. We&rsquo;re passionate about connecting people,
                     supporting drivers, and offering a service that everyone can
@@ -272,10 +273,10 @@ const About = () => {
                 </div>
                 <div className="rounded-lg bg-[#f7f7f7] p-6 h-auto w-full lg:h-[50vh]">
                   <Shield className="h-5 w-5 text-[#f7c332]" />
-                  <h4 className="mt-4 text-[16px] font-semibold text-[#1a1a1a]">
+                  <h4 className="mt-4 text-bodyLg font-semibold text-[#1a1a1a]">
                     Safety
                   </h4>
-                  <p className="mt-3 text-[13px] leading-relaxed text-[#8a8a8a]">
+                  <p className="mt-3 text-caption leading-relaxed text-[#8a8a8a]">
                     Your safety is our priority. Our platform ensures all drivers
                     and vehicles are thoroughly vetted, and we provide in-app safety
                     features for both drivers and riders.
@@ -288,10 +289,10 @@ const About = () => {
           <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
             <div className="mx-auto w-full max-w-[100vw] grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
               <div className="pt-6 lg:pt-[25vh]">
-                <h3 className="text-[22px] font-semibold text-[#1a1a1a]">
+                <h3 className="text-sectionTitle font-semibold text-[#1a1a1a]">
                   Our <span className="text-[#f7c332]">Vision</span>
                 </h3>
-                <p className="mt-3 max-w-[540px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                <p className="mt-3 max-w-[540px] text-body leading-relaxed text-[#4a4a4a]">
                   We envision a world where transportation is simple, affordable,
                   and accessible to everyone. As we continue to grow, our goal is
                   to become the go-to platform for safe, reliable, and rewarding
@@ -310,7 +311,7 @@ const About = () => {
 
           <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
             <div className="mx-auto w-full max-w-[100vw] px-0">
-              <h3 className="text-[28px] font-semibold text-[#1a1a1a]">
+              <h3 className="text-pageTitle font-semibold text-[#1a1a1a]">
                 Our People
               </h3>
               <div className="mt-8 space-y-8 lg:space-y-10">
@@ -321,10 +322,10 @@ const About = () => {
                     className="h-auto w-full rounded-lg object-cover"
                   />
                   <div className="pt-6 lg:pt-[25vh]">
-                    <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
+                    <div className="text-pageTitle font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
-                    <p className="mt-4 max-w-[520px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                    <p className="mt-4 max-w-[520px] text-body leading-relaxed text-[#4a4a4a]">
                       We envision a world where transportation is simple,
                       affordable, and accessible to everyone. As we continue to
                       grow, our goal is to become the go-to platform for safe,
@@ -332,19 +333,19 @@ const About = () => {
                       to transform the ride&ndash;hailing experience by making it
                       more inclusive, driver-friendly, and community-oriented.
                     </p>
-                    <p className="mt-4 text-sm font-semibold text-[#1a1a1a]">
+                    <p className="mt-4 text-body font-semibold text-[#1a1a1a]">
                       John Doe
                     </p>
-                    <p className="text-sm text-[#9b9b9b]">Position</p>
+                    <p className="text-caption text-[#9b9b9b]">Position</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-6 lg:gap-10">
                   <div className="pt-6 lg:pt-[25vh]">
-                    <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
+                    <div className="text-pageTitle font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
-                    <p className="mt-4 max-w-[520px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                    <p className="mt-4 max-w-[520px] text-body leading-relaxed text-[#4a4a4a]">
                       We envision a world where transportation is simple,
                       affordable, and accessible to everyone. As we continue to
                       grow, our goal is to become the go-to platform for safe,
@@ -352,10 +353,10 @@ const About = () => {
                       to transform the ride&ndash;hailing experience by making it
                       more inclusive, driver-friendly, and community-oriented.
                     </p>
-                    <p className="mt-4 text-sm font-semibold text-[#1a1a1a]">
+                    <p className="mt-4 text-body font-semibold text-[#1a1a1a]">
                       John Doe
                     </p>
-                    <p className="text-sm text-[#9b9b9b]">Position</p>
+                    <p className="text-caption text-[#9b9b9b]">Position</p>
                   </div>
                   <img
                     src="/designScreens/assets/about/about_person_car.png"
@@ -371,10 +372,10 @@ const About = () => {
                     className="h-auto w-full rounded-lg object-cover"
                   />
                   <div className="pt-6 lg:pt-[25vh]">
-                    <div className="text-[32px] font-semibold leading-none text-[#f7c332] tracking-[6px]">
+                    <div className="text-pageTitle font-semibold leading-none text-[#f7c332] tracking-[6px]">
                       &ldquo;&ldquo;
                     </div>
-                    <p className="mt-4 max-w-[520px] text-[14px] leading-relaxed text-[#4a4a4a]">
+                    <p className="mt-4 max-w-[520px] text-body leading-relaxed text-[#4a4a4a]">
                       We envision a world where transportation is simple,
                       affordable, and accessible to everyone. As we continue to
                       grow, our goal is to become the go-to platform for safe,
@@ -382,10 +383,10 @@ const About = () => {
                       to transform the ride&ndash;hailing experience by making it
                       more inclusive, driver-friendly, and community-oriented.
                     </p>
-                    <p className="mt-4 text-sm font-semibold text-[#1a1a1a]">
+                    <p className="mt-4 text-body font-semibold text-[#1a1a1a]">
                       John Doe
                     </p>
-                    <p className="text-sm text-[#9b9b9b]">Position</p>
+                    <p className="text-caption text-[#9b9b9b]">Position</p>
                   </div>
                 </div>
               </div>
@@ -394,56 +395,15 @@ const About = () => {
 
           <CommunitySection
             headingTag="h3"
-            headingClassName="text-[22px] font-semibold text-[#1a1a1a]"
-            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-[14px] leading-relaxed text-[#4a4a4a]"
+            headingClassName="text-sectionTitle font-semibold text-[#1a1a1a]"
+            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-body leading-relaxed text-[#4a4a4a]"
           />
 
           {/* Split phones download */}
-          <section id="download" className="py-12 sm:py-16 lg:py-20 bg-background">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
-              {/* Rider card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
-                <div className="flex justify-center">
-                  <img
-                    src="/designScreens/assets/ride-with-us/phone_card_rider.png"
-                    alt="Rider app screenshot"
-                    className="w-[260px] md:w-[300px]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Ride With Us</h3>
-                  <p className="text-sm mt-1">Get Kabukabu rider app and enjoy the riding experience.</p>
-                </div>
-                <div className="mt-6 flex justify-center gap-3">
-                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
-                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Get it on Google Play" className="h-10 w-auto" />
-                </div>
-              </div>
-
-              {/* Driver card */}
-              <div className="bg-muted/40 rounded-2xl p-6 border">
-                <div className="flex justify-center">
-                  <img
-                    src="/designScreens/assets/ride-with-us/phone_card_driver.png"
-                    alt="Driver app screenshot"
-                    className="w-[260px] md:w-[300px]"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="mt-6 text-center">
-                  <h3 className="font-semibold text-lg">Drive With Us</h3>
-                  <p className="text-sm mt-1">Drive and earn seamlessly using the Kabukabu driver app.</p>
-                </div>
-                <div className="mt-6 flex justify-center gap-3">
-                  <img src="/designScreens/assets/ride-with-us/badge_app_store.png" alt="Download on App Store" className="h-10 w-auto" />
-                  <img src="/designScreens/assets/ride-with-us/badge_google_play.png" alt="Get it on Google Play" className="h-10 w-auto" />
-                </div>
-              </div>
-            </div>
-          </section>
+          <SplitDownloadSection
+            density="roomy"
+            containerClassName="sm:px-6 gap-10"
+          />
         </main>
       </div>
     </>

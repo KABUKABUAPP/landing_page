@@ -31,7 +31,7 @@ const WhyLoveUs = () => {
   return (
     <section className="py-12 sm:py-16 lg:py-28 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-10 sm:mb-16">
+        <h2 className="text-sectionTitle font-bold text-center text-foreground mb-10 sm:mb-16">
           Here's Why You'll Love Us:
         </h2>
 
@@ -47,10 +47,10 @@ const WhyLoveUs = () => {
                       <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-base sm:text-lg text-foreground mb-1">
+                      <h3 className="text-cardTitle font-semibold text-foreground mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-body text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -65,21 +65,21 @@ const WhyLoveUs = () => {
                 <div className="bg-cream rounded-2xl aspect-[9/19] flex flex-col items-center justify-center p-4">
                   <div className="w-full space-y-3">
                     <div className="bg-white rounded-lg p-3 shadow-sm">
-                      <div className="text-xs font-medium text-foreground">Current location</div>
-                      <div className="text-[10px] text-muted-foreground flex items-center gap-1">
+                      <div className="text-caption font-medium text-foreground">Current location</div>
+                      <div className="text-micro text-muted-foreground flex items-center gap-1">
                         <span className="w-2 h-2 bg-primary rounded-full"></span>
                         Lekki Phase 1
                       </div>
                     </div>
                     <div className="bg-white rounded-lg p-3 shadow-sm">
-                      <div className="text-xs font-medium text-foreground">Where to?</div>
-                      <div className="text-[10px] text-muted-foreground flex items-center gap-1">
+                      <div className="text-caption font-medium text-foreground">Where to?</div>
+                      <div className="text-micro text-muted-foreground flex items-center gap-1">
                         <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                         Victoria Island
                       </div>
                     </div>
                     <div className="bg-primary rounded-lg p-2.5 text-center">
-                      <span className="text-xs font-semibold text-primary-foreground">Book Ride</span>
+                      <span className="text-caption font-semibold text-primary-foreground">Book Ride</span>
                     </div>
                   </div>
                 </div>
@@ -95,10 +95,10 @@ const WhyLoveUs = () => {
                       <feature.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-base sm:text-lg text-foreground mb-1">
+                      <h3 className="text-cardTitle font-semibold text-foreground mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-body text-muted-foreground leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
