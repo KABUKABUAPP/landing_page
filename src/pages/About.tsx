@@ -76,8 +76,6 @@ const About = () => {
   ];
   const [activeSetsUsApartSlide, setActiveSetsUsApartSlide] = useState(0);
   const setsUsApartTrackRef = useRef<HTMLDivElement | null>(null);
-  const setsUsApartSlideContentRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const [setsUsApartUniformHeight, setSetsUsApartUniformHeight] = useState<number | null>(null);
 
   const scrollToSetsUsApartSlide = (index: number, behavior: ScrollBehavior = "smooth") => {
     const track = setsUsApartTrackRef.current;
@@ -122,44 +120,6 @@ const About = () => {
     scrollToSetsUsApartSlide(activeSetsUsApartSlide, "auto");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    const getSlideNodes = () =>
-      setsUsApartSlideContentRefs.current.filter(
-        (node): node is HTMLDivElement => node !== null,
-      );
-
-    const applyUniformHeight = () => {
-      const slideNodes = getSlideNodes();
-      if (slideNodes.length === 0) {
-        return;
-      }
-
-      const maxHeight = Math.max(...slideNodes.map((node) => node.scrollHeight));
-      setSetsUsApartUniformHeight((prevHeight) =>
-        prevHeight === maxHeight ? prevHeight : maxHeight,
-      );
-    };
-
-    const recalculateFromNaturalContent = () => {
-      // Clear fixed heights first so measurements can shrink/grow with breakpoints.
-      setSetsUsApartUniformHeight((prevHeight) =>
-        prevHeight === null ? prevHeight : null,
-      );
-      window.requestAnimationFrame(applyUniformHeight);
-    };
-
-    const resizeObserver = new ResizeObserver(applyUniformHeight);
-    getSlideNodes().forEach((node) => resizeObserver.observe(node));
-
-    recalculateFromNaturalContent();
-    window.addEventListener("resize", recalculateFromNaturalContent);
-
-    return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener("resize", recalculateFromNaturalContent);
-    };
-  }, [setsUsApartSlides.length]);
 
   const isFirstSetsUsApartSlide = activeSetsUsApartSlide === 0;
   const isLastSetsUsApartSlide = activeSetsUsApartSlide === setsUsApartSlides.length - 1;
@@ -272,28 +232,18 @@ const About = () => {
                 <div
                   ref={setsUsApartTrackRef}
                   onScroll={handleSetsUsApartScroll}
-                  className="relative z-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[4%] py-[72px] sm:px-[5%] sm:py-[84px] lg:px-[7%] lg:py-[96px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                  className="relative z-10 flex items-stretch snap-x snap-mandatory gap-4 overflow-x-auto px-[4%] py-[72px] sm:px-[5%] sm:py-[84px] lg:px-[7%] lg:py-[96px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
                 >
-                  {setsUsApartSlides.map((slide, index) => (
+                  {setsUsApartSlides.map((slide) => (
                     <article
                       key={slide.key}
-                      className="w-[92%] shrink-0 snap-center md:w-[90%] lg:w-[86%]"
-                      style={
-                        setsUsApartUniformHeight
-                          ? { height: `${setsUsApartUniformHeight}px` }
-                          : undefined
-                      }
+                      className="w-[92%] shrink-0 self-stretch snap-center bg-[#ececec] md:w-[90%] lg:w-[86%]"
                     >
-                      <div
-                        ref={(node) => {
-                          setsUsApartSlideContentRefs.current[index] = node;
-                        }}
-                        className="grid h-full grid-cols-1 md:grid-cols-[1.02fr_1fr] lg:grid-cols-[1.08fr_1fr]"
-                      >
+                      <div className="grid h-full grid-cols-1 md:grid-cols-[1.02fr_1fr] lg:grid-cols-[1.08fr_1fr]">
                         <img
                           src={slide.image}
                           alt={slide.alt}
-                          className="h-full w-full object-cover"
+                          className="h-[220px] w-full object-cover sm:h-[260px] md:h-full"
                           loading="lazy"
                         />
                         <div className="flex items-center px-5 py-6 sm:px-8 sm:py-7 md:px-10 bg-[#ececec]">
