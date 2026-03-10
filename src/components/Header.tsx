@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Link, useLocation } from "react-router-dom";
@@ -100,6 +100,7 @@ const Header = () => {
   }, [location.pathname]);
 
   const isOverlay = isOverlayRoute && !scrolled;
+  const menuIconSrc = isOverlay ? "/menu_icon_white.png" : "/menu_icon_black.png";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-colors ${
@@ -161,24 +162,26 @@ const Header = () => {
             </Button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`transition-colors ${isOverlay ? 'text-white hover:text-primary' : 'text-foreground hover:text-primary'}`}
+              className="transition-opacity hover:opacity-80"
+              aria-label="Open menu"
             >
-              <Menu className="w-6 h-6" />
+              <img src={menuIconSrc} alt="" className="w-6 h-6" />
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden ${isOverlay ? 'text-white' : 'text-foreground'}`}
+            className="lg:hidden transition-opacity hover:opacity-80"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-6 h-6" /> : <img src={menuIconSrc} alt="" className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Menu Modal */}
         <Dialog open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-          <DialogContent className="w-screen h-[100dvh] sm:w-[95vw] sm:h-[90vh] max-w-5xl p-0 overflow-hidden bg-white rounded-none sm:rounded-3xl shadow-xl">
+          <DialogContent className="w-screen h-[100dvh] sm:w-[95vw] sm:h-[90vh] max-w-5xl p-0 overflow-hidden bg-white rounded-none sm:rounded-3xl shadow-xl [&>button]:hidden">
             <div className="flex flex-col h-full min-h-0">
               {/* Top bar */}
               <div className="flex items-center justify-between px-4 sm:px-5 py-4 md:px-8 bg-muted/40 border-b">

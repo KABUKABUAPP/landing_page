@@ -10,7 +10,7 @@ import {
   Shield,
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const About = () => {
   const serviceTabs = [
@@ -26,29 +26,143 @@ const About = () => {
     {
       key: "drivers",
       label: "For Drivers",
-      title: "Drive with Confidence",
-      body: "Placeholder content for drivers tab.",
+      title: "Empower Your Drive",
+      body: "We priortize the well being and success of our drivers by offering reduced commision rates, flexible schedules and incentives to boost earnings. Whether you own a vehicle or drive through our Sharp Drivers Program, Kabukabu makes it easy for you to learn more.",
       image: "/designScreens/assets/about/about_person_car.png",
       alt: "Drive with confidence",
     },
     {
       key: "fleet",
       label: "For Fleet Owners",
-      title: "Manage Your Fleet",
-      body: "Placeholder content for fleet owners tab.",
+      title: "Maximize Your Fleet's Potential",
+      body: "Our platform allows fleet owners to maximize the potential of their vehicles. Partner with Kabukabu to streamline your fleet operations, gain valuable insights, and see hgher returns on your vehicles.",
       image: "/designScreens/assets/about/about_person_car.png",
       alt: "Manage your fleet",
     },
     {
       key: "sharp",
       label: "For Sharp Drivers",
-      title: "Sharp Drivers Program",
-      body: "Placeholder content for sharp drivers tab.",
+      title: "Drive With Us, Without A Car",
+      body: "Designed for individuals who don't own a car but want to drive, our Sharp Driver Program provides the vehicle, while you provide the service. Kabukabu takes care of the details from maintenance to insurance, so you can focus on earning.",
       image: "/designScreens/assets/about/about_person_car.png",
       alt: "Sharp drivers program",
     },
   ];
   const [activeServiceTab, setActiveServiceTab] = useState(serviceTabs[0]);
+  const setsUsApartSlides = [
+    {
+      key: "driver-centric",
+      title: "Driver-Centric Approach",
+      body:
+        "Kabukabu was built with drivers in mind. Our platform ensures drivers are fairly compensated with lower commission rates and additional incentives, allowing them to keep more of their earnings. We’re dedicated to creating a supportive and rewarding environment where drivers can thrive.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Driver-centric approach",
+    },
+    {
+      key: "safety-first",
+      title: "Affordable and Convenient Rides",
+      body:
+        "We believe that everyone deserves access to transportation without sacrificing quality and comfort. Kabukabu makes ride-hailing accessible to all, offering competitive prices with the added bonus of special perks and discounts for our riders.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Affordable and Convenient Rides",
+    },
+    {
+      key: "affordable-rides",
+      title: "Innovative Solutions For Everyone",
+      body: "Whether you are rider looking for a smooth and stress-free journey, a driver wanting more control over your income, or a fleet-owner seeking better returns on your vehicles. Kabukabu offers tailored solutions that cater to your specific needs.",
+      image: "/designScreens/assets/about/about_person_car.png",
+      alt: "Innovative Solutions For Everyone",
+    },
+  ];
+  const [activeSetsUsApartSlide, setActiveSetsUsApartSlide] = useState(0);
+  const setsUsApartTrackRef = useRef<HTMLDivElement | null>(null);
+  const setsUsApartSlideContentRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [setsUsApartUniformHeight, setSetsUsApartUniformHeight] = useState<number | null>(null);
+
+  const scrollToSetsUsApartSlide = (index: number, behavior: ScrollBehavior = "smooth") => {
+    const track = setsUsApartTrackRef.current;
+    if (!track) {
+      return;
+    }
+    const slide = track.children.item(index) as HTMLElement | null;
+    if (!slide) {
+      return;
+    }
+    slide.scrollIntoView({ behavior, block: "nearest", inline: "center" });
+    setActiveSetsUsApartSlide(index);
+  };
+
+  const handleSetsUsApartScroll = () => {
+    const track = setsUsApartTrackRef.current;
+    if (!track) {
+      return;
+    }
+
+    const trackCenter = track.scrollLeft + track.clientWidth / 2;
+    let closestIndex = 0;
+    let smallestDistance = Number.POSITIVE_INFINITY;
+
+    Array.from(track.children).forEach((child, index) => {
+      const slide = child as HTMLElement;
+      const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+      const distance = Math.abs(slideCenter - trackCenter);
+
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    if (closestIndex !== activeSetsUsApartSlide) {
+      setActiveSetsUsApartSlide(closestIndex);
+    }
+  };
+
+  useEffect(() => {
+    scrollToSetsUsApartSlide(activeSetsUsApartSlide, "auto");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const getSlideNodes = () =>
+      setsUsApartSlideContentRefs.current.filter(
+        (node): node is HTMLDivElement => node !== null,
+      );
+
+    const applyUniformHeight = () => {
+      const slideNodes = getSlideNodes();
+      if (slideNodes.length === 0) {
+        return;
+      }
+
+      const maxHeight = Math.max(...slideNodes.map((node) => node.scrollHeight));
+      setSetsUsApartUniformHeight((prevHeight) =>
+        prevHeight === maxHeight ? prevHeight : maxHeight,
+      );
+    };
+
+    const recalculateFromNaturalContent = () => {
+      // Clear fixed heights first so measurements can shrink/grow with breakpoints.
+      setSetsUsApartUniformHeight((prevHeight) =>
+        prevHeight === null ? prevHeight : null,
+      );
+      window.requestAnimationFrame(applyUniformHeight);
+    };
+
+    const resizeObserver = new ResizeObserver(applyUniformHeight);
+    getSlideNodes().forEach((node) => resizeObserver.observe(node));
+
+    recalculateFromNaturalContent();
+    window.addEventListener("resize", recalculateFromNaturalContent);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", recalculateFromNaturalContent);
+    };
+  }, [setsUsApartSlides.length]);
+
+  const isFirstSetsUsApartSlide = activeSetsUsApartSlide === 0;
+  const isLastSetsUsApartSlide = activeSetsUsApartSlide === setsUsApartSlides.length - 1;
 
   return (
     <>
@@ -116,58 +230,89 @@ const About = () => {
             </div>
           </section>
 
-          {/*<section className="py-20">
-            <div className="mx-auto w-full max-w-[100vw] px-20">
-              <h3 className="text-center text-bodyLg font-semibold text-[#1a1a1a]">
+          <section className="py-14 sm:py-16 lg:py-20">
+            <div className="mx-auto w-full max-w-[1720px]">
+              <h3 className="text-center text-sectionTitle font-semibold text-[#111]">
                 What Sets Us Apart
               </h3>
-              <div className="mt-4 flex items-center justify-center gap-6">
+
+              <div className="mt-4 flex items-center justify-center gap-5">
                 <button
                   type="button"
-                  className="flex h-[46px] w-[46px] items-center justify-center rounded-full border border-[#e5e5e5] text-[#c7c7c7]"
+                  aria-label="Previous slide"
+                  onClick={() => scrollToSetsUsApartSlide(activeSetsUsApartSlide - 1)}
+                  disabled={isFirstSetsUsApartSlide}
+                  className={`flex h-[52px] w-[52px] items-center justify-center rounded-full border transition-colors ${
+                    isFirstSetsUsApartSlide
+                      ? "cursor-not-allowed border-[#d5d5d5] text-[#cfcfcf]"
+                      : "border-[#d1d1d1] text-[#111] hover:bg-[#f0f0f0]"
+                  }`}
                 >
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeft className="h-5 w-5" />
                 </button>
                 <button
                   type="button"
-                  className="flex h-[46px] w-[46px] items-center justify-center rounded-full border border-[#e5e5e5] text-[#111]"
+                  aria-label="Next slide"
+                  onClick={() => scrollToSetsUsApartSlide(activeSetsUsApartSlide + 1)}
+                  disabled={isLastSetsUsApartSlide}
+                  className={`flex h-[52px] w-[52px] items-center justify-center rounded-full border transition-colors ${
+                    isLastSetsUsApartSlide
+                      ? "cursor-not-allowed border-[#d5d5d5] text-[#cfcfcf]"
+                      : "border-[#d1d1d1] text-[#111] hover:bg-[#f0f0f0]"
+                  }`}
                 >
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
-              <div className="mt-12 flex justify-center">
-                <div className="relative h-[650px] w-full max-w-[1452px] overflow-hidden rounded-[325px] bg-[#f8f8f8]">
-                  <div className="grid h-full items-center lg:grid-cols-[766px_1fr]">
-                    <img
-                      src="/designScreens/assets/about/about_person_car.png"
-                      alt="Driver-centric approach"
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="flex h-full items-center px-10 pr-[90px]">
-                      <div className="max-w-[520px]">
-                        <h4 className="text-subTitle font-semibold text-[#1a1a1a]">
-                          Driver-Centric Approach
-                        </h4>
-                        <p className="mt-3 text-body leading-relaxed text-[#4a4a4a]">
-                          Kabukabu was built with drivers in mind. Our platform
-                          ensures drivers are fairly compensated with lower
-                          commission rates and additional incentives, allowing them
-                          to keep more of their earnings. We&rsquo;re dedicated to
-                          creating a supportive and rewarding environment where
-                          drivers can thrive.
-                        </p>
+
+              <div className="relative overflow-hidden bg-[#ececec]">
+                <div className="pointer-events-none absolute left-1/2 top-0 z-20 h-[260px] w-[220%] -translate-x-1/2 -translate-y-[74%] rounded-[100%] bg-white sm:h-[300px] lg:h-[340px]" />
+                <div className="pointer-events-none absolute left-1/2 bottom-0 z-20 h-[260px] w-[220%] -translate-x-1/2 translate-y-[74%] rounded-[100%] bg-white sm:h-[300px] lg:h-[340px]" />
+
+                <div
+                  ref={setsUsApartTrackRef}
+                  onScroll={handleSetsUsApartScroll}
+                  className="relative z-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-[4%] py-[72px] sm:px-[5%] sm:py-[84px] lg:px-[7%] lg:py-[96px] [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {setsUsApartSlides.map((slide, index) => (
+                    <article
+                      key={slide.key}
+                      className="w-[92%] shrink-0 snap-center md:w-[90%] lg:w-[86%]"
+                      style={
+                        setsUsApartUniformHeight
+                          ? { height: `${setsUsApartUniformHeight}px` }
+                          : undefined
+                      }
+                    >
+                      <div
+                        ref={(node) => {
+                          setsUsApartSlideContentRefs.current[index] = node;
+                        }}
+                        className="grid h-full grid-cols-1 md:grid-cols-[1.02fr_1fr] lg:grid-cols-[1.08fr_1fr]"
+                      >
+                        <img
+                          src={slide.image}
+                          alt={slide.alt}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="flex items-center px-5 py-6 sm:px-8 sm:py-7 md:px-10 bg-[#ececec]">
+                          <div className="max-w-[560px]">
+                            <h4 className="text-subTitle font-semibold text-[#1f1f1f]">
+                              {slide.title}
+                            </h4>
+                            <p className="mt-3 text-body leading-relaxed text-[#333]">
+                              {slide.body}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <img
-                    src="/designScreens/assets/about/about_person_car.png"
-                    alt=""
-                    className="absolute right-0 top-0 hidden h-full w-[185px] object-cover lg:block"
-                  />
+                    </article>
+                  ))}
                 </div>
               </div>
             </div>
-          </section>*/}
+          </section>
 
           {/* Our Services */}
           <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-20">
