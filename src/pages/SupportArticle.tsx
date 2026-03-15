@@ -1,24 +1,28 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CommunitySection from "@/components/CommunitySection";
+import Header from "@/components/Header";
+import SplitDownloadSection from "@/components/SplitDownloadSection";
 import SupportBreadcrumb from "@/components/SupportBreadcrumb";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 
 const SupportArticle = () => {
   const { category } = useParams();
-  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ') : 'Riders';
+  const categoryTitle = category
+    ? category.charAt(0).toUpperCase() + category.slice(1).replace("-", " ")
+    : "Riders";
 
   return (
     <>
       <Helmet>
         <title>How do i open a rider account? | Kabukabu Support</title>
-        <meta name="description" content="Learn how to open a Kabukabu rider account step by step." />
+        <meta
+          name="description"
+          content="Learn how to open a Kabukabu rider account step by step."
+        />
       </Helmet>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white">
         <Header />
         <main className="pt-16 sm:pt-20">
-          {/* Breadcrumb */}
           <SupportBreadcrumb
             items={[
               { label: "Support", href: "/support" },
@@ -27,63 +31,111 @@ const SupportArticle = () => {
             ]}
           />
 
-          {/* Article Content */}
-          <section className="py-10 sm:py-12 bg-background">
+          <section className="py-14 sm:py-20">
             <div className="container mx-auto px-4 lg:px-8">
-              <div className="max-w-3xl mx-auto">
-                <h1 className="text-sectionTitle font-bold text-foreground mb-6">
+              <article className="mx-auto max-w-[760px]">
+                <h1 className="text-center text-pageTitle font-semibold text-[#121212] sm:text-[3rem]">
                   How do i open a rider account?
                 </h1>
-                
-                <p className="text-body text-muted-foreground mb-8">
-                  Getting started with Kabukabu is quick and easy! Follow these simple steps to create your rider account and start enjoying seamless, affordable rides.
+
+                <p className="mt-6 text-bodyLg leading-[1.8] text-[#2b2b2b]">
+                  Getting started with Kabukabu is quick and easy! Follow these
+                  simple steps to create your rider account and start enjoying
+                  seamless, affordable rides.
                 </p>
 
-                <div className="space-y-8">
-                  <div>
-                    <h2 className="text-cardTitle font-bold text-foreground mb-3">Step 1: Download the Kabukabu App</h2>
-                    <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-body text-muted-foreground">
-                      <li><strong>For iOS Users:</strong> Go to the <a href="#" className="text-primary underline">App Store</a> and search for "Kabukabu." Tap "Download" to install the app on your iPhone or iPad.</li>
-                      <li><strong>For Android Users:</strong> Visit the Google Play Store and search for "Kabukabu." Tap "Install" to add the app to your Android device.</li>
+                <div className="mt-8 space-y-8 text-bodyLg leading-[1.8] text-[#2b2b2b]">
+                  <section>
+                    <h2 className="font-semibold text-[#1a1a1a]">
+                      Step 1: Download the Kabukabu App
+                    </h2>
+                    <ul className="mt-2 list-disc space-y-1 pl-6">
+                      <li>
+                        <strong>For iOS Users:</strong> Go to the App Store and
+                        search for &quot;Kabukabu.&quot; Tap &quot;Download&quot; to
+                        install the app on your iPhone or iPad.
+                      </li>
+                      <li>
+                        <strong>For Android Users:</strong> Visit the Google Play
+                        Store and search for &quot;Kabukabu.&quot; Tap
+                        &quot;Install&quot; to download the app to your Android
+                        device.
+                      </li>
                     </ul>
-                  </div>
+                  </section>
 
-                  <div>
-                    <h2 className="text-cardTitle font-bold text-foreground mb-3">Step 2: Open the App and Sign Up</h2>
-                    <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-body text-muted-foreground">
-                      <li><strong>Launch the App:</strong> Open the Kabukabu app on your device.</li>
-                      <li><strong>Create an Account:</strong> Tap on "Sign Up" to start the registration process. You'll need to provide your basic information, including your name, email address, and phone number.</li>
+                  <section>
+                    <h2 className="font-semibold text-[#1a1a1a]">
+                      Step 2: Open the App and Sign Up
+                    </h2>
+                    <ul className="mt-2 list-disc space-y-1 pl-6">
+                      <li>
+                        <strong>Launch the App:</strong> Open the Kabukabu app on
+                        your device.
+                      </li>
+                      <li>
+                        <strong>Create an Account:</strong> Tap on &quot;Sign Up&quot;
+                        to start the registration process. You&apos;ll need to provide
+                        your basic information, including your name, email
+                        address, and phone number.
+                      </li>
                     </ul>
-                  </div>
+                  </section>
 
-                  <div>
-                    <h2 className="text-cardTitle font-bold text-foreground mb-3">Step 3: Verify Your Information</h2>
-                    <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-body text-muted-foreground">
-                      <li><strong>Email Verification:</strong> Check your email for a verification link from Kabukabu. Click on the link to confirm your email address.</li>
+                  <section>
+                    <h2 className="font-semibold text-[#1a1a1a]">
+                      Step 3: Verify Your Information
+                    </h2>
+                    <ul className="mt-2 list-disc space-y-1 pl-6">
+                      <li>
+                        <strong>Email Verification:</strong> Check your email for a
+                        verification link from Kabukabu. Click on the link to
+                        confirm your email address.
+                      </li>
                     </ul>
-                  </div>
+                  </section>
 
-                  <div>
-                    <h2 className="text-cardTitle font-bold text-foreground mb-3">Step 4: Start Booking Rides</h2>
-                    <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-body text-muted-foreground">
-                      <li><strong>Book a Ride:</strong> Use the app to set your pickup location and destination. Review ride options, select your preferred vehicle type, and confirm your booking.</li>
-                      <li><strong>Track Your Ride:</strong> Once your ride is confirmed, you can track your driver's location in real-time and get updates on your ride status.</li>
+                  <section>
+                    <h2 className="font-semibold text-[#1a1a1a]">
+                      Step 4: Start Booking Rides
+                    </h2>
+                    <ul className="mt-2 list-disc space-y-1 pl-6">
+                      <li>
+                        <strong>Book a Ride:</strong> Use the app to set your
+                        pickup location and destination. Review ride options,
+                        select your preferred vehicle type, and confirm your
+                        booking.
+                      </li>
+                      <li>
+                        <strong>Track Your Ride:</strong> Once your ride is
+                        confirmed, you can track your driver&apos;s location in
+                        real-time and get updates on your ride status.
+                      </li>
                     </ul>
-                  </div>
+                  </section>
 
-                  <div>
-                    <h2 className="text-cardTitle font-bold text-foreground mb-3">Step 5: Customize Your Profile</h2>
-                    <ul className="list-disc pl-5 sm:pl-6 space-y-2 text-body text-muted-foreground">
-                      <li><strong>Profile Picture:</strong> Upload a profile picture to personalize your account.</li>
-                      <li><strong>Address Information:</strong> Enter your default pickup and drop-off locations to make booking rides even easier.</li>
+                  <section>
+                    <h2 className="font-semibold text-[#1a1a1a]">
+                      Step 5: Customize Your Profile
+                    </h2>
+                    <ul className="mt-2 list-disc space-y-1 pl-6">
+                      <li>
+                        <strong>Profile Picture:</strong> Upload a profile picture
+                        to personalize your account.
+                      </li>
+                      <li>
+                        <strong>Address Information:</strong> Enter your default
+                        pickup and drop-off locations to make booking rides even
+                        easier.
+                      </li>
                     </ul>
-                  </div>
+                  </section>
                 </div>
-              </div>
+              </article>
             </div>
           </section>
 
-          <CommunitySection />
+          <SplitDownloadSection />
         </main>
         <Footer />
       </div>

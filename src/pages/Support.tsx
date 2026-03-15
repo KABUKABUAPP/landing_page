@@ -1,10 +1,11 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CommunitySection from "@/components/CommunitySection";
+import Header from "@/components/Header";
+import ContactSupportDialog from "@/components/ContactSupportDialog";
 import SplitDownloadSection from "@/components/SplitDownloadSection";
+import SupportCommunitySection from "@/components/SupportCommunitySection";
 import SupportSearch from "@/components/SupportSearch";
 import { Helmet } from "react-helmet-async";
-import { User, Car, Users, UserCheck } from "lucide-react";
+import { Car, Mail, User, UserCheck, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const categories = [
@@ -19,47 +20,57 @@ const Support = () => {
     <>
       <Helmet>
         <title>Support - How can we help? | Kabukabu</title>
-        <meta name="description" content="Get help and support for Kabukabu riders, drivers, fleet owners, and sharp drivers." />
+        <meta
+          name="description"
+          content="Get help and support for Kabukabu riders, drivers, fleet owners, and sharp drivers."
+        />
       </Helmet>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white">
         <Header />
         <main className="pt-16 sm:pt-20">
-          {/* Hero Section */}
-          <section className="py-12 sm:py-16 bg-cream">
-            <div className="container mx-auto px-4 lg:px-8 text-center">
-              <h1 className="text-pageTitle font-bold text-foreground mb-8">
-                How can we help?
-              </h1>
-              
-              {/* Search bar */}
-              <SupportSearch className="mb-12" />
+          <section className="py-14 sm:py-20">
+            <div className="container mx-auto px-4 lg:px-8">
+              <div className="mx-auto max-w-[1080px] text-center">
+                <h1 className="text-pageTitle font-semibold text-[#121212] sm:text-[3.5rem]">
+                  How can we help?
+                </h1>
+                <SupportSearch className="mt-10 max-w-[700px]" />
+              </div>
 
-              {/* Categories */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
+              <div className="mx-auto mt-10 grid max-w-[1180px] grid-cols-2 gap-4 lg:grid-cols-5">
                 {categories.map((category) => (
                   <Link
                     key={category.label}
                     to={category.href}
-                    className="bg-background border border-border rounded-xl p-4 sm:p-6 hover:shadow-lg transition-all text-center group"
+                    className="flex min-h-[112px] flex-col items-start justify-between rounded-[1.75rem] border border-[#efefef] bg-[#fafafa] px-5 py-5 text-left transition-colors hover:border-primary/30 hover:bg-primary/5"
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cream rounded-lg flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/10 transition-colors">
-                      <category.icon className="w-5 h-5 sm:w-6 sm:h-6 text-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                    <span className="text-body font-medium text-foreground">{category.label}</span>
+                    <category.icon className="h-6 w-6 text-[#161616]" />
+                    <span className="text-bodyLg font-medium text-[#1a1a1a]">
+                      {category.label}
+                    </span>
                   </Link>
                 ))}
+
+                <ContactSupportDialog
+                  trigger={
+                    <button
+                      type="button"
+                      className="flex min-h-[112px] flex-col items-start justify-between rounded-[1.75rem] border border-[#efefef] bg-[#fafafa] px-5 py-5 text-left transition-colors hover:border-primary/30 hover:bg-primary/5"
+                    >
+                      <Mail className="h-6 w-6 text-[#161616]" />
+                      <span className="text-bodyLg font-medium text-[#1a1a1a]">
+                        Talk To Us
+                      </span>
+                    </button>
+                  }
+                />
               </div>
             </div>
           </section>
 
-          <CommunitySection
-            headingTag="h3"
-            headingClassName="text-sectionTitle font-semibold text-[#1a1a1a]"
-            paragraphClassName="mx-auto mt-4 max-w-[1013px] text-body leading-relaxed text-[#4a4a4a]"
-          />
+          <SupportCommunitySection sectionClassName="pb-4 pt-6 sm:pt-10" />
 
-          {/* Split phones download */}
-          <SplitDownloadSection sectionClassName="px-4 sm:px-6 lg:px-20" />
+          <SplitDownloadSection />
         </main>
         <Footer />
       </div>
