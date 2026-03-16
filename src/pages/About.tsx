@@ -237,7 +237,7 @@ const About = () => {
                   {setsUsApartSlides.map((slide) => (
                     <article
                       key={slide.key}
-                      className="w-[92%] shrink-0 self-stretch snap-center bg-[#ececec] md:w-[90%] lg:w-[86%]"
+                      className="w-[92%] shrink-0 self-stretch snap-center md:w-[90%] lg:w-[86%]"
                     >
                       <div className="grid h-full grid-cols-1 md:grid-cols-[1.02fr_1fr] lg:grid-cols-[1.08fr_1fr]">
                         <img

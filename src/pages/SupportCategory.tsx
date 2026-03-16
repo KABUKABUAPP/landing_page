@@ -1,7 +1,8 @@
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CommunitySection from "@/components/CommunitySection";
+import Header from "@/components/Header";
+import SplitDownloadSection from "@/components/SplitDownloadSection";
 import SupportBreadcrumb from "@/components/SupportBreadcrumb";
+import SupportCommunitySection from "@/components/SupportCommunitySection";
 import SupportSearch from "@/components/SupportSearch";
 import { Helmet } from "react-helmet-async";
 import { ArrowRight } from "lucide-react";
@@ -17,18 +18,22 @@ const faqItems = [
 
 const SupportCategory = () => {
   const { category } = useParams();
-  const categoryTitle = category ? category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, ' ') : 'Riders';
+  const categoryTitle = category
+    ? category.charAt(0).toUpperCase() + category.slice(1).replace(/-/g, " ")
+    : "Riders";
 
   return (
     <>
       <Helmet>
         <title>{categoryTitle} Support | Kabukabu</title>
-        <meta name="description" content={`Get help and support for Kabukabu ${categoryTitle.toLowerCase()}.`} />
+        <meta
+          name="description"
+          content={`Get help and support for Kabukabu ${categoryTitle.toLowerCase()}.`}
+        />
       </Helmet>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white">
         <Header />
         <main className="pt-16 sm:pt-20">
-          {/* Breadcrumb */}
           <SupportBreadcrumb
             items={[
               { label: "Support", href: "/support" },
@@ -36,33 +41,36 @@ const SupportCategory = () => {
             ]}
           />
 
-          {/* Content */}
-          <section className="py-10 sm:py-12 bg-cream">
+          <section className="py-14 sm:py-20">
             <div className="container mx-auto px-4 lg:px-8">
-              <h1 className="text-sectionTitle font-bold text-foreground text-center mb-8">
-                {categoryTitle} Support
-              </h1>
-              
-              {/* Search bar */}
-              <SupportSearch className="mb-12" />
+              <div className="mx-auto max-w-[1080px]">
+                <h1 className="text-center text-pageTitle font-semibold text-[#121212] sm:text-[3rem]">
+                  {categoryTitle} Support
+                </h1>
 
-              {/* FAQ List */}
-              <div className="max-w-2xl mx-auto space-y-4">
-                {faqItems.map((item, index) => (
-                  <Link
-                    key={index}
-                    to={`/support/${category}/article`}
-                    className="flex items-center justify-between p-4 sm:p-5 bg-background border border-border rounded-lg hover:shadow-md transition-all group"
-                  >
-                    <span className="text-body text-foreground">{item}</span>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Link>
-                ))}
+                <SupportSearch className="mt-10 max-w-[700px]" />
+
+                <div className="mt-12 space-y-4">
+                  {faqItems.map((item, index) => (
+                    <Link
+                      key={`${item}-${index}`}
+                      to={`/support/${category}/article`}
+                      className="flex min-h-[72px] items-center justify-between rounded-[1.35rem] border border-[#efefef] bg-[#fafafa] px-5 py-4 transition-colors hover:border-primary/30 hover:bg-primary/5 sm:px-6"
+                    >
+                      <span className="text-bodyLg font-medium text-[#1a1a1a]">
+                        {item}
+                      </span>
+                      <ArrowRight className="h-5 w-5 text-[#8d8d8d]" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
 
-          <CommunitySection />
+          <SupportCommunitySection sectionClassName="pb-4 pt-6 sm:pt-10" />
+
+          <SplitDownloadSection />
         </main>
         <Footer />
       </div>
