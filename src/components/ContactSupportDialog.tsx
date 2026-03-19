@@ -14,13 +14,27 @@ const initialFormState = {
   message: "",
 };
 
+const DEFAULT_CONTACT_SUPPORT_API_BASE_URL =
+  "https://rideservice-dev.up.railway.app";
+const CONTACT_SUPPORT_API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ?? DEFAULT_CONTACT_SUPPORT_API_BASE_URL
+).replace(/\/+$/, "");
+
+type ContactSupportApiResponse = {
+  message?: string;
+};
+
 const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState(initialFormState);
 
   const resetDialogState = () => {
     setSubmitted(false);
+    setIsSubmitting(false);
+    setErrorMessage("");
     setFormState(initialFormState);
   };
 
@@ -31,9 +45,56 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
     }
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+
+    const payload = {
+      fullname: formState.name.trim(),
+      email: formState.email.trim(),
+      message: formState.message.trim(),
+    };
+
+    if (!payload.fullname || !payload.email || !payload.message) {
+      setErrorMessage("Please complete all fields before sending your message.");
+      return;
+    }
+
+    setErrorMessage("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(`${CONTACT_SUPPORT_API_BASE_URL}/contact-us`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let responseBody: ContactSupportApiResponse | null = null;
+
+      try {
+        responseBody = (await response.json()) as ContactSupportApiResponse;
+      } catch {
+        responseBody = null;
+      }
+
+      if (!response.ok) {
+        setErrorMessage(
+          responseBody?.message ??
+            "We couldn't send your message right now. Please try again.",
+        );
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setErrorMessage(
+        "We couldn't send your message right now. Please check your connection and try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
@@ -42,7 +103,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
   };
 
   return (
-      <Dialog open={open} onOpenChange={handleOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="top-3 w-[calc(100vw-1.5rem)] max-h-[calc(100dvh-1.5rem)] max-w-[720px] translate-y-0 overflow-y-auto overscroll-contain rounded-[2rem] border-none bg-white p-0 shadow-[0_30px_90px_rgba(0,0,0,0.18)] [scrollbar-width:none] [-ms-overflow-style:none] sm:top-4 sm:w-[calc(100vw-2rem)] [&::-webkit-scrollbar]:hidden [&>button]:hidden">
         {submitted ? (
@@ -103,6 +164,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                 <input
                   type="text"
                   required
+                  disabled={isSubmitting}
                   value={formState.name}
                   onChange={(event) =>
                     setFormState((currentState) => ({
@@ -111,7 +173,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                     }))
                   }
                   placeholder="Name here"
-                  className="mt-3 h-14 w-full rounded-2xl border-none bg-[#f6f6f6] px-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-3 h-14 w-full rounded-2xl border-none bg-[#f6f6f6] px-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-70"
                 />
               </label>
 
@@ -122,6 +184,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                 <input
                   type="email"
                   required
+                  disabled={isSubmitting}
                   value={formState.email}
                   onChange={(event) =>
                     setFormState((currentState) => ({
@@ -130,7 +193,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                     }))
                   }
                   placeholder="Email here"
-                  className="mt-3 h-14 w-full rounded-2xl border-none bg-[#f6f6f6] px-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-3 h-14 w-full rounded-2xl border-none bg-[#f6f6f6] px-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-70"
                 />
               </label>
 
@@ -141,6 +204,7 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                 <textarea
                   required
                   rows={6}
+                  disabled={isSubmitting}
                   value={formState.message}
                   onChange={(event) =>
                     setFormState((currentState) => ({
@@ -149,16 +213,23 @@ const ContactSupportDialog = ({ trigger }: ContactSupportDialogProps) => {
                     }))
                   }
                   placeholder="Type here"
-                  className="mt-3 w-full resize-none rounded-2xl border-none bg-[#f6f6f6] px-5 py-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-3 w-full resize-none rounded-2xl border-none bg-[#f6f6f6] px-5 py-5 text-body text-[#1d1d1d] placeholder:text-[#a6a6a6] focus:outline-none focus:ring-2 focus:ring-primary disabled:cursor-not-allowed disabled:opacity-70"
                 />
               </label>
             </div>
 
+            {errorMessage ? (
+              <p className="mt-5 text-sm font-medium text-[#d24134]">
+                {errorMessage}
+              </p>
+            ) : null}
+
             <button
               type="submit"
-              className="mt-8 w-full rounded-xl bg-primary px-6 py-4 text-bodyLg font-medium text-black transition-colors hover:bg-primary/90"
+              disabled={isSubmitting}
+              className="mt-8 w-full rounded-xl bg-primary px-6 py-4 text-bodyLg font-medium text-black transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Send message
+              {isSubmitting ? "Sending..." : "Send message"}
             </button>
           </form>
         )}
